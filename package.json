@@ -1,0 +1,50 @@
+{
+  "name": "html-to-image-renderer",
+  "version": "0.1.0",
+  "description": "Convert HTML content to images with server-side rendering",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "keywords": [
+    "html",
+    "image",
+    "screenshot",
+    "render",
+    "export",
+    "nextjs"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/html-to-image-renderer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/html-to-image-renderer/issues"
+  },
+  "homepage": "https://github.com/yourusername/html-to-image-renderer#readme",
+  "dependencies": {
+    "puppeteer": "^22.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/jest": "^29.0.0",
+    "eslint": "^8.0.0",
+    "jest": "^29.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "next": ">=14"
+  }
+} 
