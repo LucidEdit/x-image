@@ -1,67 +1,70 @@
+// index.ts
 import puppeteer from 'puppeteer';
-
-export interface RenderOptions {
-  width?: number;
-  height?: number;
-  scale?: number;
-  format?: 'png' | 'jpeg';
-  quality?: number;
-  fullPage?: boolean;
-  darkMode?: boolean;
-}
+import { applyPreset } from './lib/presets';
+import { wrapHtml } from './lib/wrap-html';
+import type { RenderToImageOptions } from './types';
 
 export async function renderToImage(
-  html: string,
-  options: RenderOptions = {}
+  htmlOrBody: string,
+  options: RenderToImageOptions = {}
 ): Promise<Buffer> {
   const {
-    width = 1200,
-    height = 800,
-    scale = 2,
+    markdown,
+    body,
+    wrap = true,
+    preset,
+    delayMs = 0,
     format = 'png',
     quality = 100,
     fullPage = true,
     darkMode = false,
+    transparent = false,
   } = options;
 
-  // Launch browser
-  const browser = await puppeteer.launch({
-    headless: true
-  });
+  const presetDefaults = applyPreset(preset);
+  const mergedOptions = { ...presetDefaults, ...options };
+
+  const {
+    width = 1200,
+    height = 800,
+    scale = 2,
+    fontLinks,
+    customCSS,
+    backgroundColor,
+  } = mergedOptions;
+
+  const finalBody = markdown
+    ? `<p>${markdown.replace(/\n/g, '<br/>')}</p>`
+    : body || htmlOrBody;
+
+  const finalHtml = wrap
+    ? wrapHtml(finalBody, { fontLinks, customCSS, backgroundColor, transparent })
+    : finalBody;
+
+  const browser = await puppeteer.launch({ headless: true });
 
   try {
     const page = await browser.newPage();
 
-    // Set viewport
-    await page.setViewport({
-      width,
-      height,
-      deviceScaleFactor: scale,
-    });
+    await page.setViewport({ width, height, deviceScaleFactor: scale });
 
-    // Set color scheme if dark mode is enabled
     if (darkMode) {
-      await page.emulateMediaFeatures([
-        { name: 'prefers-color-scheme', value: 'dark' }
-      ]);
+      await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'dark' }]);
     }
 
-    // Set content
-    await page.setContent(html, {
-      waitUntil: ['networkidle0', 'load']
-    });
+    await page.setContent(finalHtml, { waitUntil: ['networkidle0', 'load'] });
 
-    // Take screenshot
-    const screenshot = await page.screenshot({
+    if (delayMs > 0) await new Promise(resolve => setTimeout(resolve, delayMs));
+
+    return await page.screenshot({
       type: format,
       quality: format === 'jpeg' ? quality : undefined,
       fullPage,
-    });
-
-    return screenshot as Buffer;
+      omitBackground: transparent,
+    }) as Buffer;
   } finally {
     await browser.close();
   }
 }
 
-export default renderToImage; 
+export default renderToImage;
