@@ -21,7 +21,7 @@ export async function renderToImage(
     transparent = false,
   } = options;
 
-  const presetDefaults = applyPreset(preset);
+  const presetDefaults = applyPreset(preset, options);
   const mergedOptions = { ...presetDefaults, ...options };
 
   const {

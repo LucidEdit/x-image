@@ -5,6 +5,7 @@ export function wrapHtml(body: string, options: Partial<RenderToImageOptions> = 
     fontLinks = [],
     customCSS = '',
     backgroundColor = '#ffffff',
+    backgroundImage,
     transparent = false,
   } = options;
 
@@ -20,6 +21,10 @@ export function wrapHtml(body: string, options: Partial<RenderToImageOptions> = 
           body {
             margin: 0;
             background: ${transparent ? 'transparent' : backgroundColor};
+            ${backgroundImage ? `background-image: url('${backgroundImage}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;` : ''}
           }
           ${customCSS}
         </style>

@@ -1,6 +1,6 @@
 import type { RenderToImageOptions } from "../types";
 
-export function applyPreset(preset?: string): Partial<RenderToImageOptions> {
+export function applyPreset(preset?: string, options: Partial<RenderToImageOptions> = {}): Partial<RenderToImageOptions> {
   switch (preset) {
     case "book-excerpt":
       return {
@@ -25,6 +25,12 @@ export function applyPreset(preset?: string): Partial<RenderToImageOptions> {
     text-align: left;
     line-height: 1.7;
     width: 920px;
+    ${options.backgroundImage ? `
+    background-image: url('${options.backgroundImage}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    ` : ''}
   }
 
   p {

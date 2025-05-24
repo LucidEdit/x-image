@@ -13,6 +13,7 @@ export interface RenderToImageOptions {
   fontLinks?: string[];
   customCSS?: string;
   backgroundColor?: string;
+  backgroundImage?: string;
   transparent?: boolean;
 
   markdown?: string;
