@@ -31,7 +31,7 @@ async function test() {
   const highlighted = await renderToImage(leanIntoDifficult, {
     preset: "highlighted-book",
     backgroundImage:
-      "https://pbs.twimg.com/media/Grhndq3WcAAkAec?format=jpg&name=large",
+      "https://pbs.twimg.com/media/Grhndq4XAAALjOq?format=jpg&name=large",
   });
 
   writeFileSync("test-output.png", image);
