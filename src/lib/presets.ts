@@ -2,6 +2,50 @@ import type { RenderToImageOptions } from "../types";
 
 export function applyPreset(preset?: string): Partial<RenderToImageOptions> {
   switch (preset) {
+    case "book-excerpt":
+      return {
+        width: 1000,
+        height: 10,
+        backgroundColor: "#fff",
+        fontLinks: [
+          "https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap",
+        ],
+        customCSS: `
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: fit-content;
+  }
+
+  body {
+    padding: 40px;
+    font-family: 'Libre Baskerville', serif;
+    background: #fff;
+    color: #222;
+    text-align: left;
+    line-height: 1.7;
+    width: 920px;
+  }
+
+  p {
+    font-size: 24px;
+    margin: 0 0 24px 0;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+`,
+      };
+
     case "a4-poster":
       return {
         width: 794,

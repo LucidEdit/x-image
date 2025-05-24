@@ -20,9 +20,12 @@ async function test() {
         <p>But here's the truth: neither path is inherently superior. For too long, we've been told that only one path exists.</p>
     `;
 
-  const image = await renderToImage(html, {
-    preset: "a4-poster",
-    scale: 2,
+    const leanIntoDifficult = `
+        <p>Lean into difficulty. It’s only a bad thing if you tell yourself the story that it’s a bad thing. Struggle is only a bad thing if you characterize it that way. Failure is only a bad thing if you catastrophize. There’s a story where difficulty is a thing you enjoy, struggle is just part of the process of winning, and failure is data that teaches you lessons. Tell yourself that one. You might feel some discomfort in the moment, but it won’t break you, and you’ll easily keep going.</p>
+    `;
+
+  const image = await renderToImage(leanIntoDifficult, {
+    preset: "book-excerpt",
   });
 
   writeFileSync("test-output.png", image);
