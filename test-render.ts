@@ -3,9 +3,7 @@ import { writeFileSync } from "fs";
 
 async function test() {
   const html = `
-        <h1>The Case for</h1>
-
-        <h2>Solo Founders</h2>
+        <h1>The Case for Solo Founders</h1>
 
         <p>For decades, the startup world has pushed one narrative: you need co-founders to succeed. <em>What if they're wrong?</em></p>
 
@@ -20,17 +18,27 @@ async function test() {
         <p>But here's the truth: neither path is inherently superior. For too long, we've been told that only one path exists.</p>
     `;
 
-    const leanIntoDifficult = `
-        <p>Lean into difficulty. It's only a bad thing if you tell yourself the story that it's a bad thing. Struggle is only a bad thing if you characterize it that way. Failure is only a bad thing if you catastrophize. There's a story where difficulty is a thing you enjoy, struggle is just part of the process of winning, and failure is data that teaches you lessons. Tell yourself that one. You might feel some discomfort in the moment, but it won't break you, and you'll easily keep going.</p>
+  const leanIntoDifficult = `
+        <p><mark>Lean into difficulty.</mark> It's only a bad thing if you tell yourself the story that it's a bad thing. <mark>Struggle is only a bad thing if you characterize it that way.</mark> <mark>Failure is only a bad thing if you catastrophize.</mark> There's a story where <mark>difficulty is a thing you enjoy</mark>, struggle is just part of the process of winning, and <mark>failure is data that teaches you lessons.</mark> Tell yourself that one. You might feel some discomfort in the moment, but <mark>it won't break you, and you'll easily keep going.</mark></p>
     `;
 
-  const image = await renderToImage(leanIntoDifficult, {
+  const image = await renderToImage(html, {
     preset: "book-excerpt",
-    backgroundImage: "https://pbs.twimg.com/media/Grhndq3WcAAkAec?format=jpg&name=large"
+    backgroundImage:
+      "https://pbs.twimg.com/media/Grhndq3WcAAkAec?format=jpg&name=large",
+  });
+
+  const highlighted = await renderToImage(leanIntoDifficult, {
+    preset: "highlighted-book",
+    backgroundImage:
+      "https://pbs.twimg.com/media/Grhndq3WcAAkAec?format=jpg&name=large",
   });
 
   writeFileSync("test-output.png", image);
   console.log("Image saved as test-output.png");
+
+  writeFileSync("highlighted-output.png", highlighted);
+  console.log("Image saved as highlighted-output.png");
 }
 
 test().catch(console.error);
