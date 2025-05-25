@@ -1,7 +1,7 @@
 {
-  "name": "html-to-image-renderer",
+  "name": "beautiful-text-images",
   "version": "0.1.0",
-  "description": "Convert HTML content to images with server-side rendering",
+  "description": "Create beautiful images from text and HTML content, perfect for social media sharing",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -16,23 +16,24 @@
     "README.md"
   ],
   "keywords": [
+    "text-to-image",
+    "beautiful",
+    "social-media",
     "html",
     "image",
     "screenshot",
-    "render",
-    "export",
-    "nextjs"
+    "render"
   ],
-  "author": "Your Name",
+  "author": "Lucid",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/html-to-image-renderer.git"
+    "url": "git+https://github.com/LucidEdit/x-image.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/html-to-image-renderer/issues"
+    "url": "https://github.com/LucidEdit/x-image/issues"
   },
-  "homepage": "https://github.com/yourusername/html-to-image-renderer#readme",
+  "homepage": "https://github.com/LucidEdit/x-image#readme",
   "dependencies": {
     "puppeteer": "^22.0.0"
   },
