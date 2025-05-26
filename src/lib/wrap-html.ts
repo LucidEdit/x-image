@@ -1,15 +1,20 @@
-import type { RenderToImageOptions } from '../types';
+import type { RenderToImageOptions } from "../types";
 
-export function wrapHtml(body: string, options: Partial<RenderToImageOptions> = {}): string {
+export function wrapHtml(
+  body: string,
+  options: Partial<RenderToImageOptions> = {}
+): string {
   const {
     fontLinks = [],
-    customCSS = '',
-    backgroundColor = '#ffffff',
+    customCSS = "",
+    backgroundColor = "#ffffff",
     backgroundImage,
     transparent = false,
   } = options;
 
-  const fonts = fontLinks.map(link => `<link href="${link}" rel="stylesheet">`).join('\n');
+  const fonts = fontLinks
+    .map((link) => `<link href="${link}" rel="stylesheet">`)
+    .join("\n");
 
   return `
     <!DOCTYPE html>
@@ -20,11 +25,15 @@ export function wrapHtml(body: string, options: Partial<RenderToImageOptions> = 
         <style>
           body {
             margin: 0;
-            background: ${transparent ? 'transparent' : backgroundColor};
-            ${backgroundImage ? `background-image: url('${backgroundImage}');
+            background: ${transparent ? "transparent" : backgroundColor};
+            ${
+              backgroundImage
+                ? `background-image: url('${backgroundImage}');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;` : ''}
+            background-repeat: no-repeat;`
+                : ""
+            }
           }
           ${customCSS}
         </style>

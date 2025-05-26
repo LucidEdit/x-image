@@ -1,8 +1,8 @@
 // index.ts
-import puppeteer from 'puppeteer';
-import { applyPreset } from './lib/presets';
-import { wrapHtml } from './lib/wrap-html';
-import type { RenderToImageOptions } from './types';
+import { createBrowser } from "./lib/browser";
+import { applyPreset } from "./presets";
+import { wrapHtml } from "./lib/wrap-html";
+import type { RenderToImageOptions } from "./types";
 
 export async function renderToImage(
   htmlOrBody: string,
@@ -13,12 +13,9 @@ export async function renderToImage(
     body,
     wrap = true,
     preset,
-    delayMs = 0,
-    format = 'png',
-    quality = 100,
-    fullPage = true,
-    darkMode = false,
+    format = "png",
     transparent = false,
+    maxLength,
   } = options;
 
   const presetDefaults = applyPreset(preset, options);
@@ -34,34 +31,35 @@ export async function renderToImage(
   } = mergedOptions;
 
   const finalBody = markdown
-    ? `<p>${markdown.replace(/\n/g, '<br/>')}</p>`
+    ? `<p>${markdown.replace(/\n/g, "<br/>")}</p>`
     : body || htmlOrBody;
 
+  if (maxLength && finalBody.length > maxLength) {
+    throw new Error(`Content length ${finalBody.length} exceeds maxLength limit of ${maxLength} characters`);
+  }
+
   const finalHtml = wrap
-    ? wrapHtml(finalBody, { fontLinks, customCSS, backgroundColor, transparent })
+    ? wrapHtml(finalBody, {
+        fontLinks,
+        customCSS,
+        backgroundColor,
+        transparent,
+      })
     : finalBody;
 
-  const browser = await puppeteer.launch({ headless: true });
+  const { browser, page } = await createBrowser();
 
   try {
-    const page = await browser.newPage();
-
     await page.setViewport({ width, height, deviceScaleFactor: scale });
 
-    if (darkMode) {
-      await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'dark' }]);
-    }
+    await page.setContent(finalHtml, { waitUntil: ["networkidle0", "load"] });
 
-    await page.setContent(finalHtml, { waitUntil: ['networkidle0', 'load'] });
-
-    if (delayMs > 0) await new Promise(resolve => setTimeout(resolve, delayMs));
-
-    return await page.screenshot({
+    return (await page.screenshot({
       type: format,
-      quality: format === 'jpeg' ? quality : undefined,
-      fullPage,
+      quality: format === "jpeg" ? 100 : undefined,
+      fullPage: true,
       omitBackground: transparent,
-    }) as Buffer;
+    })) as Buffer;
   } finally {
     await browser.close();
   }
