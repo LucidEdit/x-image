@@ -13,11 +13,7 @@ export async function renderToImage(
     body,
     wrap = true,
     preset,
-    delayMs = 0,
     format = 'png',
-    quality = 100,
-    fullPage = true,
-    darkMode = false,
     transparent = false,
   } = options;
 
@@ -48,18 +44,12 @@ export async function renderToImage(
 
     await page.setViewport({ width, height, deviceScaleFactor: scale });
 
-    if (darkMode) {
-      await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'dark' }]);
-    }
-
     await page.setContent(finalHtml, { waitUntil: ['networkidle0', 'load'] });
-
-    if (delayMs > 0) await new Promise(resolve => setTimeout(resolve, delayMs));
 
     return await page.screenshot({
       type: format,
-      quality: format === 'jpeg' ? quality : undefined,
-      fullPage,
+      quality: format === 'jpeg' ? 100 : undefined,
+      fullPage: true,
       omitBackground: transparent,
     }) as Buffer;
   } finally {

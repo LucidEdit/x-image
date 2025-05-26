@@ -3,10 +3,6 @@ export interface RenderToImageOptions {
   height?: number;
   scale?: number;
   format?: "png" | "jpeg" | "webp";
-  quality?: number;
-  fullPage?: boolean;
-  darkMode?: boolean;
-  delayMs?: number;
 
   body?: string;
   wrap?: boolean;
