@@ -1,6 +1,6 @@
 // index.ts
 import { createBrowser } from './lib/browser';
-import { applyPreset } from './lib/presets';
+import { applyPreset } from './presets';
 import { wrapHtml } from './lib/wrap-html';
 import type { RenderToImageOptions } from './types';
 
