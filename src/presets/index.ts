@@ -21,4 +21,4 @@ export function applyPreset(
 
 export * from "./book-excerpt";
 export * from "./a4-poster";
-export * from "./highlighted-book"; 
+export * from "./highlighted-book";

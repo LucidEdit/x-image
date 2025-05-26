@@ -54,4 +54,4 @@ export const a4PosterPreset = (
         margin-top: 40px;
     }
   `,
-}); 
+});

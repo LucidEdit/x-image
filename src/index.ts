@@ -1,8 +1,8 @@
 // index.ts
-import { createBrowser } from './lib/browser';
-import { applyPreset } from './presets';
-import { wrapHtml } from './lib/wrap-html';
-import type { RenderToImageOptions } from './types';
+import { createBrowser } from "./lib/browser";
+import { applyPreset } from "./presets";
+import { wrapHtml } from "./lib/wrap-html";
+import type { RenderToImageOptions } from "./types";
 
 export async function renderToImage(
   htmlOrBody: string,
@@ -13,7 +13,7 @@ export async function renderToImage(
     body,
     wrap = true,
     preset,
-    format = 'png',
+    format = "png",
     transparent = false,
   } = options;
 
@@ -30,11 +30,16 @@ export async function renderToImage(
   } = mergedOptions;
 
   const finalBody = markdown
-    ? `<p>${markdown.replace(/\n/g, '<br/>')}</p>`
+    ? `<p>${markdown.replace(/\n/g, "<br/>")}</p>`
     : body || htmlOrBody;
 
   const finalHtml = wrap
-    ? wrapHtml(finalBody, { fontLinks, customCSS, backgroundColor, transparent })
+    ? wrapHtml(finalBody, {
+        fontLinks,
+        customCSS,
+        backgroundColor,
+        transparent,
+      })
     : finalBody;
 
   const { browser, page } = await createBrowser();
@@ -42,14 +47,14 @@ export async function renderToImage(
   try {
     await page.setViewport({ width, height, deviceScaleFactor: scale });
 
-    await page.setContent(finalHtml, { waitUntil: ['networkidle0', 'load'] });
+    await page.setContent(finalHtml, { waitUntil: ["networkidle0", "load"] });
 
-    return await page.screenshot({
+    return (await page.screenshot({
       type: format,
-      quality: format === 'jpeg' ? 100 : undefined,
+      quality: format === "jpeg" ? 100 : undefined,
       fullPage: true,
       omitBackground: transparent,
-    }) as Buffer;
+    })) as Buffer;
   } finally {
     await browser.close();
   }

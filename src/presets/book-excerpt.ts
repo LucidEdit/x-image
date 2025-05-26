@@ -21,14 +21,15 @@ export const bookExcerptPreset = (
         text-align: left;
         line-height: 1.7;
         width: 920px;
-        ${options.backgroundImage
-          ? `
+        ${
+          options.backgroundImage
+            ? `
         background-image: url('${options.backgroundImage}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         `
-          : ""
+            : ""
         }
     }
 
@@ -49,4 +50,4 @@ export const bookExcerptPreset = (
         margin-bottom: 0;
     }
   `,
-}); 
+});
