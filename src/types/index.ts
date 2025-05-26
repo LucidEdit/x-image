@@ -11,6 +11,7 @@ export interface RenderToImageOptions {
   backgroundColor?: string;
   backgroundImage?: string;
   transparent?: boolean;
+  maxLength?: number;
 
   markdown?: string;
   preset?:

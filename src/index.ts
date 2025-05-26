@@ -15,6 +15,7 @@ export async function renderToImage(
     preset,
     format = "png",
     transparent = false,
+    maxLength,
   } = options;
 
   const presetDefaults = applyPreset(preset, options);
@@ -32,6 +33,10 @@ export async function renderToImage(
   const finalBody = markdown
     ? `<p>${markdown.replace(/\n/g, "<br/>")}</p>`
     : body || htmlOrBody;
+
+  if (maxLength && finalBody.length > maxLength) {
+    throw new Error(`Content length ${finalBody.length} exceeds maxLength limit of ${maxLength} characters`);
+  }
 
   const finalHtml = wrap
     ? wrapHtml(finalBody, {
