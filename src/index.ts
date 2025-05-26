@@ -1,5 +1,5 @@
 // index.ts
-import puppeteer from 'puppeteer';
+import { createBrowser } from './lib/browser';
 import { applyPreset } from './lib/presets';
 import { wrapHtml } from './lib/wrap-html';
 import type { RenderToImageOptions } from './types';
@@ -37,11 +37,9 @@ export async function renderToImage(
     ? wrapHtml(finalBody, { fontLinks, customCSS, backgroundColor, transparent })
     : finalBody;
 
-  const browser = await puppeteer.launch({ headless: true });
+  const { browser, page } = await createBrowser();
 
   try {
-    const page = await browser.newPage();
-
     await page.setViewport({ width, height, deviceScaleFactor: scale });
 
     await page.setContent(finalHtml, { waitUntil: ['networkidle0', 'load'] });
