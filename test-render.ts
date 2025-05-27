@@ -1,4 +1,4 @@
-import { renderToImage } from "./dist";
+import { renderHtmlToImageClientSide } from "./dist";
 import { writeFileSync } from "fs";
 
 async function test() {
@@ -22,13 +22,13 @@ async function test() {
         <p><mark>Lean into difficulty.</mark> It's only a bad thing if you tell yourself the story that it's a bad thing. <mark>Struggle is only a bad thing if you characterize it that way.</mark> <mark>Failure is only a bad thing if you catastrophize.</mark> There's a story where <mark>difficulty is a thing you enjoy</mark>, struggle is just part of the process of winning, and <mark>failure is data that teaches you lessons.</mark> Tell yourself that one. You might feel some discomfort in the moment, but <mark>it won't break you, and you'll easily keep going.</mark></p>
     `;
 
-  const image = await renderToImage(html, {
+  const image = await renderHtmlToImageClientSide(html, {
     preset: "book-excerpt",
     backgroundImage:
       "https://pbs.twimg.com/media/Grhndq3WcAAkAec?format=jpg&name=large",
   });
 
-  const highlighted = await renderToImage(leanIntoDifficult, {
+  const highlighted = await renderHtmlToImageClientSide(leanIntoDifficult, {
     preset: "highlighted-book",
     backgroundImage:
       "https://pbs.twimg.com/media/Grhndq4XAAALjOq?format=jpg&name=large",
