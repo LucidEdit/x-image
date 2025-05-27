@@ -1,23 +1,6 @@
-export interface RenderToImageOptions {
-  width?: number;
-  height?: number;
-  scale?: number;
-  format?: "png" | "jpeg" | "webp";
-
-  body?: string;
-  wrap?: boolean;
-  fontLinks?: string[];
+export type Theme = {
+  name: string;
+  wrapperStyle: Partial<CSSStyleDeclaration>;
+  elementStyles?: Record<string, Partial<CSSStyleDeclaration>>;
   customCSS?: string;
-  backgroundColor?: string;
-  backgroundImage?: string;
-  transparent?: boolean;
-  maxLength?: number;
-
-  markdown?: string;
-  preset?:
-    | "a4-poster"
-    | "tweet"
-    | "ugly-debug"
-    | "book-excerpt"
-    | "highlighted-book";
-}
+};
