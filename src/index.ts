@@ -1,68 +1,81 @@
-// index.ts
-import { createBrowser } from "./lib/browser";
-import { applyPreset } from "./presets";
-import { wrapHtml } from "./lib/wrap-html";
-import type { RenderToImageOptions } from "./types";
+import { toPng } from "html-to-image";
+import { Theme } from "./types";
+import { themes } from "./themes";
 
-export async function renderToImage(
-  htmlOrBody: string,
-  options: RenderToImageOptions = {}
-): Promise<Buffer> {
-  const {
-    markdown,
-    body,
-    wrap = true,
-    preset,
-    format = "png",
-    transparent = false,
-    maxLength,
-  } = options;
-
-  const presetDefaults = applyPreset(preset, options);
-  const mergedOptions = { ...presetDefaults, ...options };
-
-  const {
-    width = 1200,
-    height = 800,
-    scale = 2,
-    fontLinks,
-    customCSS,
-    backgroundColor,
-  } = mergedOptions;
-
-  const finalBody = markdown
-    ? `<p>${markdown.replace(/\n/g, "<br/>")}</p>`
-    : body || htmlOrBody;
-
-  if (maxLength && finalBody.length > maxLength) {
-    throw new Error(`Content length ${finalBody.length} exceeds maxLength limit of ${maxLength} characters`);
+function getThemeByName(name: string): Theme {
+  const theme = themes.find((t) => t.name === name);
+  if (!theme) {
+    throw new Error(`Theme "${name}" not found`);
   }
-
-  const finalHtml = wrap
-    ? wrapHtml(finalBody, {
-        fontLinks,
-        customCSS,
-        backgroundColor,
-        transparent,
-      })
-    : finalBody;
-
-  const { browser, page } = await createBrowser();
-
-  try {
-    await page.setViewport({ width, height, deviceScaleFactor: scale });
-
-    await page.setContent(finalHtml, { waitUntil: ["networkidle0", "load"] });
-
-    return (await page.screenshot({
-      type: format,
-      quality: format === "jpeg" ? 100 : undefined,
-      fullPage: true,
-      omitBackground: transparent,
-    })) as Buffer;
-  } finally {
-    await browser.close();
-  }
+  return theme;
 }
 
-export default renderToImage;
+function injectCustomCSS(css: string): HTMLStyleElement {
+  const styleTag = document.createElement("style");
+  styleTag.setAttribute("data-injected-theme-css", "true");
+  styleTag.textContent = css;
+  document.head.appendChild(styleTag);
+  return styleTag;
+}
+
+function applyStylesToHTML(rawHtml: string, theme: Theme): HTMLElement {
+  const wrapper = document.createElement("div");
+  Object.assign(wrapper.style, theme.wrapperStyle);
+
+  const tempContainer = document.createElement("div");
+  tempContainer.innerHTML = rawHtml;
+
+  Array.from(tempContainer.children).forEach((child) => {
+    const tagName = child.tagName.toLowerCase();
+    const styles = theme.elementStyles?.[tagName];
+    if (styles) {
+      Object.assign((child as HTMLElement).style, styles);
+    }
+    wrapper.appendChild(child);
+  });
+
+  return wrapper;
+}
+
+export async function renderHtmlToImageClientSide(
+  rawHtml: string,
+  themeName: string = "light",
+  returnDataUrlOnly: boolean = false
+): Promise<string | void> {
+  const theme = getThemeByName(themeName);
+
+  let styleTag: HTMLStyleElement | null = null;
+  if (theme.customCSS) {
+    styleTag = injectCustomCSS(theme.customCSS);
+  }
+
+  const styledElement = applyStylesToHTML(rawHtml, theme);
+  document.body.appendChild(styledElement);
+
+  const themeWidth = parseInt(theme.wrapperStyle.width as string) || 1000;
+  const pixelRatio = 2;
+
+  const dataUrl = await toPng(styledElement, {
+    pixelRatio,
+    backgroundColor: theme.wrapperStyle.backgroundColor || "#ffffff",
+    canvasWidth: themeWidth * pixelRatio,
+    canvasHeight: styledElement.offsetHeight * pixelRatio,
+    skipAutoScale: false,
+  });
+
+  document.body.removeChild(styledElement);
+  if (styleTag) {
+    document.head.removeChild(styleTag);
+  }
+
+  if (returnDataUrlOnly) {
+    return dataUrl;
+  }
+
+  const link = document.createElement("a");
+  link.href = dataUrl;
+  link.download = `rendered-image-${themeName}.png`;
+  link.click();
+}
+
+export const availableThemes = themes.map((t) => t.name);
