@@ -46,7 +46,7 @@ export const typewrittenPagePreset = (
     p {
         font-size: 20px;
         line-height: 1.75;
-        margin-bottom: 12px;
+        margin-bottom: 8px;
     }
 
     em {
