@@ -9,7 +9,7 @@ export const typewrittenPagePreset = (
   backgroundColor: "#f8f6f0",
   backgroundImage: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=1600&fit=crop&auto=format&q=80",
   fontLinks: [
-    "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter&display=swap",
+    "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;700&display=swap",
   ],
   customCSS: `
     ${baseStyles.resetStyles}
