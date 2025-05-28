@@ -3,10 +3,10 @@ import { Theme } from "../types";
 export const bookExcerptTheme: Theme = {
   name: "book-excerpt",
   fontLinks: [
-    "https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+    "https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap",
   ],
   wrapperStyle: {
-    padding: "20px 40px",
+    padding: "20px 40px 40px 40px",
     backgroundColor: "#fff",
     fontFamily: '"Libre Baskerville", serif',
     color: "#222",
@@ -38,24 +38,24 @@ export const bookExcerptTheme: Theme = {
       margin: "1em 0 0.5em",
       fontFamily: '"Libre Baskerville", serif',
     },
-    p: { 
-      fontSize: "24px", 
+    p: {
+      fontSize: "24px",
       margin: "0 0 24px 0",
       fontFamily: '"Libre Baskerville", serif',
     },
-    em: { 
+    em: {
       fontStyle: "italic",
       fontFamily: '"Libre Baskerville", serif',
     },
-    strong: { 
+    strong: {
       fontWeight: "700",
       fontFamily: '"Libre Baskerville", serif',
     },
-    u: { 
+    u: {
       textDecoration: "underline",
       fontFamily: '"Libre Baskerville", serif',
     },
-    s: { 
+    s: {
       textDecoration: "line-through",
       fontFamily: '"Libre Baskerville", serif',
     },
@@ -80,29 +80,33 @@ export const bookExcerptTheme: Theme = {
       borderRadius: "6px",
       overflowX: "auto",
     },
-    ul: { 
-      marginLeft: "2rem", 
+    ul: {
+      fontSize: "24px",
+      marginLeft: "2rem",
       paddingLeft: "1rem",
       fontFamily: '"Libre Baskerville", serif',
+      listStyleType: "disc",
     },
-    ol: { 
-      marginLeft: "2rem", 
+    ol: {
+      fontSize: "24px",
+      marginLeft: "2rem",
       paddingLeft: "1rem",
       fontFamily: '"Libre Baskerville", serif',
+      listStyleType: "decimal",
     },
-    li: { 
-      marginBottom: "0.5em", 
+    li: {
+      marginBottom: "0.5em",
       fontSize: "24px",
       fontFamily: '"Libre Baskerville", serif',
     },
-    a: { 
-      color: "#1a0dab", 
+    a: {
+      color: "#1a0dab",
       textDecoration: "underline",
       fontFamily: '"Libre Baskerville", serif',
     },
-    "p:last-child": { 
+    "p:last-child": {
       marginBottom: "0",
       fontFamily: '"Libre Baskerville", serif',
     },
   },
-}; 
+};
