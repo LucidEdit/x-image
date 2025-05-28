@@ -5,9 +5,8 @@ A server-side HTML to image conversion package, designed to work with Next.js ap
 ## Package Architecture
 
 This is a standalone NPM package that provides server-side HTML-to-image conversion. Here's how it's structured:
-
 ```
-html-to-image-renderer/
+beautiful-text-images/
 ├── package.json        # Package manifest
 ├── tsconfig.json      # TypeScript configuration
 ├── tsup.config.ts     # Build configuration
@@ -22,7 +21,7 @@ html-to-image-renderer/
 - **package.json**: Defines the package configuration
   ```json
   {
-    "name": "html-to-image-renderer",  // Package name
+    "name": "beautiful-text-images",  // Package name
     "version": "0.1.0",               // Package version
     "main": "dist/index.js",          // CommonJS entry point
     "module": "dist/index.mjs",       // ES Modules entry point
@@ -39,6 +38,82 @@ html-to-image-renderer/
   }
   ```
 
+## Frontend Usage
+
+This package can be used directly in the browser to convert HTML content to images. Here's how to use it:
+
+### Basic Usage
+
+```typescript
+import { createBeautifulTextImage } from 'beautiful-text-images';
+
+const htmlContent = `
+  <div>
+    <h1>Hello World</h1>
+    <p>This is a test image</p>
+  </div>
+`;
+
+await createBeautifulTextImage(htmlContent);
+```
+
+### Using Themes
+
+The package comes with built-in themes that you can use:
+
+```typescript
+import { createBeautifulTextImage, availableThemes } from 'beautiful-text-images';
+
+console.log(availableThemes); // ['book-excerpt', ...]
+
+await createBeautifulTextImage(htmlContent, {
+  theme: 'book-excerpt'
+});
+```
+
+### Getting Data URL Only
+
+If you want to get the image data URL instead of triggering a download:
+
+```typescript
+import { useState } from 'react';
+import { createBeautifulTextImage } from 'beautiful-text-images';
+
+function ImagePreview() {
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+
+  const generateImage = async () => {
+    const htmlContent = `
+      <div>
+        <h1>Hello World</h1>
+        <p>This is a test image</p>
+      </div>
+    `;
+
+    const dataUrl = await createBeautifulTextImage(htmlContent, {
+      returnDataUrlOnly: true
+    });
+
+    setImageUrl(dataUrl);
+  };
+
+  return (
+    <div>
+      <button onClick={generateImage}>Generate Image</button>
+      {imageUrl && <img src={imageUrl} alt="Generated content" />}
+    </div>
+  );
+}
+```
+
+### Options
+
+The `createBeautifulTextImage` function accepts the following options:
+
+- `theme` (string): The name of the theme to use (default: 'book-excerpt')
+- `returnDataUrlOnly` (boolean): If true, returns the data URL instead of triggering download
+- `maxLength` (number): Maximum allowed length of the HTML content
+
 ## Integration with Lucid
 
 This package is used by the Lucid editor (main app) for converting editor content to images. The integration happens in several parts:
@@ -51,10 +126,10 @@ In Lucid's `package.json`, this package can be linked in two ways:
 {
   "dependencies": {
     // Development: Local File Link
-    "html-to-image-renderer": "file:../html-to-image-renderer",
+    "beautiful-text-images": "file:../beautiful-text-images",
     
     // Production: Version from npm
-    "html-to-image-renderer": "^0.1.0"
+    "beautiful-text-images": "^0.1.0"
   }
 }
 ```
@@ -83,14 +158,14 @@ In Lucid's `package.json`, this package can be linked in two ways:
    npm link
 
    # In Lucid directory
-   npm link html-to-image-renderer
+   npm link beautiful-text-images
    ```
 
    Or update Lucid's package.json to use local files:
    ```json
    {
      "dependencies": {
-       "html-to-image-renderer": "file:../html-to-image-renderer"
+       "beautiful-text-images": "file:../beautiful-text-images"
      }
    }
    ```
