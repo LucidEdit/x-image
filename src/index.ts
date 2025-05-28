@@ -39,25 +39,40 @@ function applyStylesToHTML(rawHtml: string, theme: Theme): HTMLElement {
 
 export async function renderHtmlToImageClientSide(
   rawHtml: string,
-  themeName: string = "book-excerpt",
-  returnDataUrlOnly: boolean = false
+  options: {
+    theme?: string;
+    returnDataUrlOnly?: boolean;
+    maxLength?: number;
+  } = {}
 ): Promise<string | void> {
-  const theme = getThemeByName(themeName);
+  const {
+    theme = "book-excerpt",
+    returnDataUrlOnly = false,
+    maxLength,
+  } = options;
 
-  let styleTag: HTMLStyleElement | null = null;
-  if (theme.customCSS) {
-    styleTag = injectCustomCSS(theme.customCSS);
+  if (maxLength !== undefined && rawHtml.length > maxLength) {
+    throw new Error(
+      `rawHtml exceeds the maximum allowed length of ${maxLength} characters`
+    );
   }
 
-  const styledElement = applyStylesToHTML(rawHtml, theme);
+  const themeObj = getThemeByName(theme);
+
+  let styleTag: HTMLStyleElement | null = null;
+  if (themeObj.customCSS) {
+    styleTag = injectCustomCSS(themeObj.customCSS);
+  }
+
+  const styledElement = applyStylesToHTML(rawHtml, themeObj);
   document.body.appendChild(styledElement);
 
-  const themeWidth = parseInt(theme.wrapperStyle.width as string) || 1000;
+  const themeWidth = parseInt(themeObj.wrapperStyle.width as string) || 1000;
   const pixelRatio = 2;
 
   const dataUrl = await toPng(styledElement, {
     pixelRatio,
-    backgroundColor: theme.wrapperStyle.backgroundColor || "#ffffff",
+    backgroundColor: themeObj.wrapperStyle.backgroundColor || "#ffffff",
     canvasWidth: themeWidth * pixelRatio,
     canvasHeight: styledElement.offsetHeight * pixelRatio,
     skipAutoScale: false,
@@ -74,7 +89,7 @@ export async function renderHtmlToImageClientSide(
 
   const link = document.createElement("a");
   link.href = dataUrl;
-  link.download = `rendered-image-${themeName}.png`;
+  link.download = `rendered-image-${theme}.png`;
   link.click();
 }
 
