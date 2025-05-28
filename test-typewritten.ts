@@ -3,15 +3,39 @@ import { writeFileSync } from "fs";
 
 async function testTypewritten() {
   const manifesto = `
-    <h1>Company Manifesto</h1>
-    
-    <p>We believe in the power of simplicity. In a world cluttered with complexity, we choose clarity. Every line of code we write, every product we build, every decision we make is guided by this principle.</p>
-    
-    <p>We are builders, not just dreamers. We turn ideas into reality through disciplined execution and relentless focus on what matters most.</p>
-    
-    <p>Our mission is to create tools that empower people to do their best work. We measure our success not by the features we add, but by the problems we solve.</p>
-    
-    <div class="signature">— The Team</div>
+<h1>
+  <em>
+    Lucid
+  </em>
+</h1>
+<p>
+  Writing is broken.
+</p>
+<p>
+  The word processor hasn't evolved since 1990. Meanwhile, AI has changed everything. Current tools bolt AI onto decades-old paradigms. It doesn't work.
+</p>
+<p></p>
+<p>
+  <strong>
+    Lucid: the word processor rebuilt for the AI era.
+  </strong>
+</p>
+<p></p>
+<p>
+  A complete rethink from first principles.
+  <br>
+  The future of writing starts here.
+</p>
+<hr>
+<p>
+  <em>
+    Lucid
+  </em>
+  <br>
+  <a target="_blank" rel="noopener noreferrer" class="text-primary underline decoration-primary underline-offset-4 hover:text-primary/80" href="http://lucid.page">
+    getlucid.app
+  </a>
+</p>
   `;
 
   const image = await renderToImage(manifesto, {
