@@ -5,7 +5,7 @@ import { getThemeByName } from "./lib/get-theme-by-name";
 import { injectCustomCSS } from "./lib/inject-custom-css";
 import { applyStylesToHTML } from "./lib/apply-styles-to-html";
 
-export async function renderHtmlToImageClientSide(
+export async function createBeautifulTextImage(
   rawHtml: string,
   options: {
     theme?: string;
