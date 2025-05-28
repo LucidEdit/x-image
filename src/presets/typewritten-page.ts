@@ -57,6 +57,10 @@ export const typewrittenPagePreset = (
         font-weight: 700;
     }
 
+    a {
+        color: #2a2a2a;
+    }
+
     .signature {
         margin-top: 60px;
         text-align: right;
