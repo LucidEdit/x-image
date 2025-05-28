@@ -39,6 +39,82 @@ html-to-image-renderer/
   }
   ```
 
+## Frontend Usage
+
+This package can be used directly in the browser to convert HTML content to images. Here's how to use it:
+
+### Basic Usage
+
+```typescript
+import { renderHtmlToImageClientSide } from 'html-to-image-renderer';
+
+const htmlContent = `
+  <div>
+    <h1>Hello World</h1>
+    <p>This is a test image</p>
+  </div>
+`;
+
+await renderHtmlToImageClientSide(htmlContent);
+```
+
+### Using Themes
+
+The package comes with built-in themes that you can use:
+
+```typescript
+import { renderHtmlToImageClientSide, availableThemes } from 'html-to-image-renderer';
+
+console.log(availableThemes); // ['book-excerpt', ...]
+
+await renderHtmlToImageClientSide(htmlContent, {
+  theme: 'book-excerpt'
+});
+```
+
+### Getting Data URL Only
+
+If you want to get the image data URL instead of triggering a download:
+
+```typescript
+import { useState } from 'react';
+import { renderHtmlToImageClientSide } from 'html-to-image-renderer';
+
+function ImagePreview() {
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+
+  const generateImage = async () => {
+    const htmlContent = `
+      <div>
+        <h1>Hello World</h1>
+        <p>This is a test image</p>
+      </div>
+    `;
+
+    const dataUrl = await renderHtmlToImageClientSide(htmlContent, {
+      returnDataUrlOnly: true
+    });
+
+    setImageUrl(dataUrl);
+  };
+
+  return (
+    <div>
+      <button onClick={generateImage}>Generate Image</button>
+      {imageUrl && <img src={imageUrl} alt="Generated content" />}
+    </div>
+  );
+}
+```
+
+### Options
+
+The `renderHtmlToImageClientSide` function accepts the following options:
+
+- `theme` (string): The name of the theme to use (default: 'book-excerpt')
+- `returnDataUrlOnly` (boolean): If true, returns the data URL instead of triggering download
+- `maxLength` (number): Maximum allowed length of the HTML content
+
 ## Integration with Lucid
 
 This package is used by the Lucid editor (main app) for converting editor content to images. The integration happens in several parts:
