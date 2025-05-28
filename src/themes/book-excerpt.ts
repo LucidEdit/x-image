@@ -2,8 +2,11 @@ import { Theme } from "../types";
 
 export const bookExcerptTheme: Theme = {
   name: "book-excerpt",
+  fontLinks: [
+    "https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+  ],
   wrapperStyle: {
-    padding: "40px",
+    padding: "20px 40px",
     backgroundColor: "#fff",
     fontFamily: '"Libre Baskerville", serif',
     color: "#222",
@@ -35,35 +38,34 @@ export const bookExcerptTheme: Theme = {
       margin: "1em 0 0.5em",
       fontFamily: '"Libre Baskerville", serif',
     },
-    h4: {
-      fontSize: "24px",
-      fontWeight: "600",
-      margin: "1em 0 0.5em",
+    p: { 
+      fontSize: "24px", 
+      margin: "0 0 24px 0",
       fontFamily: '"Libre Baskerville", serif',
     },
-    h5: {
-      fontSize: "20px",
-      fontWeight: "600",
-      margin: "1em 0 0.5em",
+    em: { 
+      fontStyle: "italic",
       fontFamily: '"Libre Baskerville", serif',
     },
-    h6: {
-      fontSize: "18px",
-      fontWeight: "600",
-      margin: "1em 0 0.5em",
+    strong: { 
+      fontWeight: "700",
       fontFamily: '"Libre Baskerville", serif',
     },
-    p: { fontSize: "24px", margin: "0 0 24px 0" },
-    em: { fontStyle: "italic" },
-    strong: { fontWeight: "700" },
-    u: { textDecoration: "underline" },
-    s: { textDecoration: "line-through" },
+    u: { 
+      textDecoration: "underline",
+      fontFamily: '"Libre Baskerville", serif',
+    },
+    s: { 
+      textDecoration: "line-through",
+      fontFamily: '"Libre Baskerville", serif',
+    },
     blockquote: {
       marginLeft: "2rem",
       paddingLeft: "1.5rem",
       borderLeft: "3px solid #666",
       fontStyle: "italic",
       color: "#444",
+      fontFamily: '"Libre Baskerville", serif',
     },
     code: {
       fontFamily: "monospace",
@@ -78,10 +80,29 @@ export const bookExcerptTheme: Theme = {
       borderRadius: "6px",
       overflowX: "auto",
     },
-    ul: { marginLeft: "2rem", paddingLeft: "1rem" },
-    ol: { marginLeft: "2rem", paddingLeft: "1rem" },
-    li: { marginBottom: "0.5em", fontSize: "24px" },
-    a: { color: "#1a0dab", textDecoration: "underline" },
-    "p:last-child": { marginBottom: "0" },
+    ul: { 
+      marginLeft: "2rem", 
+      paddingLeft: "1rem",
+      fontFamily: '"Libre Baskerville", serif',
+    },
+    ol: { 
+      marginLeft: "2rem", 
+      paddingLeft: "1rem",
+      fontFamily: '"Libre Baskerville", serif',
+    },
+    li: { 
+      marginBottom: "0.5em", 
+      fontSize: "24px",
+      fontFamily: '"Libre Baskerville", serif',
+    },
+    a: { 
+      color: "#1a0dab", 
+      textDecoration: "underline",
+      fontFamily: '"Libre Baskerville", serif',
+    },
+    "p:last-child": { 
+      marginBottom: "0",
+      fontFamily: '"Libre Baskerville", serif',
+    },
   },
 }; 

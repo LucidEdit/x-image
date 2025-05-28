@@ -2,6 +2,9 @@ import { Theme } from "../types";
 
 export const highlightedBookTheme: Theme = {
   name: "highlighted-book",
+  fontLinks: [
+    "https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+  ],
   wrapperStyle: {
     width: "1000px",
     minHeight: "10px",
@@ -55,17 +58,35 @@ export const highlightedBookTheme: Theme = {
       margin: "1em 0 0.5em",
       fontFamily: '"Libre Baskerville", serif',
     },
-    p: { fontSize: "24px", lineHeight: "1.7", margin: "0 0 24px 0" },
-    em: { fontStyle: "italic" },
-    strong: { fontWeight: "700" },
-    u: { textDecoration: "underline" },
-    s: { textDecoration: "line-through" },
+    p: { 
+      fontSize: "24px", 
+      lineHeight: "1.7", 
+      margin: "0 0 24px 0",
+      fontFamily: '"Libre Baskerville", serif',
+    },
+    em: { 
+      fontStyle: "italic",
+      fontFamily: '"Libre Baskerville", serif',
+    },
+    strong: { 
+      fontWeight: "700",
+      fontFamily: '"Libre Baskerville", serif',
+    },
+    u: { 
+      textDecoration: "underline",
+      fontFamily: '"Libre Baskerville", serif',
+    },
+    s: { 
+      textDecoration: "line-through",
+      fontFamily: '"Libre Baskerville", serif',
+    },
     blockquote: {
       marginLeft: "2rem",
       paddingLeft: "1.5rem",
       borderLeft: "3px solid #666",
       fontStyle: "italic",
       color: "#444",
+      fontFamily: '"Libre Baskerville", serif',
     },
     code: {
       fontFamily: "monospace",
@@ -80,57 +101,78 @@ export const highlightedBookTheme: Theme = {
       borderRadius: "6px",
       overflowX: "auto",
     },
-    ul: { marginLeft: "2rem", paddingLeft: "1rem" },
-    ol: { marginLeft: "2rem", paddingLeft: "1rem" },
-    li: { marginBottom: "0.5em", fontSize: "24px" },
-    a: { color: "#1a0dab", textDecoration: "underline" },
-    "p:last-child": { marginBottom: "0" },
+    ul: { 
+      marginLeft: "2rem", 
+      paddingLeft: "1rem",
+      fontFamily: '"Libre Baskerville", serif',
+    },
+    ol: { 
+      marginLeft: "2rem", 
+      paddingLeft: "1rem",
+      fontFamily: '"Libre Baskerville", serif',
+    },
+    li: { 
+      marginBottom: "0.5em", 
+      fontSize: "24px",
+      fontFamily: '"Libre Baskerville", serif',
+    },
+    a: { 
+      color: "#1a0dab", 
+      textDecoration: "underline",
+      fontFamily: '"Libre Baskerville", serif',
+    },
+    "p:last-child": { 
+      marginBottom: "0",
+      fontFamily: '"Libre Baskerville", serif',
+    },
     mark: {
       background: "none",
       position: "relative",
       padding: "0 4px",
       margin: "0 -4px",
       zIndex: "1",
+      fontFamily: '"Libre Baskerville", serif',
     },
+    customCSS: `
+      mark {
+        background: none;
+        position: relative;
+        padding: 0 4px;
+        margin: 0 -4px;
+        z-index: 1;
+        font-family: "Libre Baskerville", serif;
+      }
+
+      mark::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 241, 118, 0.9);
+        mix-blend-mode: multiply;
+        filter: blur(1px);
+        transform: rotate(-0.5deg);
+        clip-path: polygon(0% 3%, 100% 0%, 99% 97%, 2% 100%);
+        border-radius: 2px;
+        z-index: -2;
+      }
+
+      mark::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(
+          transparent 65%,
+          rgba(255, 255, 255, 0.25) 65%,
+          rgba(255, 255, 255, 0.25) 85%,
+          transparent 85%
+        );
+        filter: blur(0.8px);
+        transform: rotate(0.15deg);
+        clip-path: polygon(0% 0%, 100% 2%, 98% 96%, 2% 98%);
+        border-radius: 2px;
+        z-index: -1;
+        pointer-events: none;
+      }
+    `,
   },
-  customCSS: `
-    mark {
-      background: none;
-      position: relative;
-      padding: 0 4px;
-      margin: 0 -4px;
-      z-index: 1;
-    }
-
-    mark::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(255, 241, 118, 0.9);
-      mix-blend-mode: multiply;
-      filter: blur(1px);
-      transform: rotate(-0.5deg);
-      clip-path: polygon(0% 3%, 100% 0%, 99% 97%, 2% 100%);
-      border-radius: 2px;
-      z-index: -2;
-    }
-
-    mark::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: linear-gradient(
-        transparent 65%,
-        rgba(255, 255, 255, 0.25) 65%,
-        rgba(255, 255, 255, 0.25) 85%,
-        transparent 85%
-      );
-      filter: blur(0.8px);
-      transform: rotate(0.15deg);
-      clip-path: polygon(0% 0%, 100% 2%, 98% 96%, 2% 98%);
-      border-radius: 2px;
-      z-index: -1;
-      pointer-events: none;
-    }
-  `,
 }; 

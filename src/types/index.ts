@@ -3,4 +3,5 @@ export type Theme = {
   wrapperStyle: Partial<CSSStyleDeclaration>;
   elementStyles?: Record<string, Partial<CSSStyleDeclaration>>;
   customCSS?: string;
+  fontLinks?: string[];
 };
