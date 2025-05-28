@@ -1,5 +1,4 @@
 import { toPng } from "html-to-image";
-import { Theme } from "./types";
 import { themes } from "./themes";
 import { getThemeByName } from "./lib/get-theme-by-name";
 import { injectCustomCSS } from "./lib/inject-custom-css";
