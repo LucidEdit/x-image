@@ -1,0 +1,87 @@
+import { Theme } from "../types";
+
+export const bookExcerptTheme: Theme = {
+  name: "book-excerpt",
+  wrapperStyle: {
+    padding: "40px",
+    backgroundColor: "#fff",
+    fontFamily: '"Libre Baskerville", serif',
+    color: "#222",
+    textAlign: "left",
+    lineHeight: "1.7",
+    width: "900px",
+    backgroundImage:
+      'url("https://pbs.twimg.com/media/Grhndq3WcAAkAec?format=jpg&name=large")',
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  },
+  elementStyles: {
+    h1: {
+      fontSize: "36px",
+      fontWeight: "600",
+      margin: "1em 0 0.5em",
+      fontFamily: '"Libre Baskerville", serif',
+    },
+    h2: {
+      fontSize: "32px",
+      fontWeight: "600",
+      margin: "1em 0 0.5em",
+      fontFamily: '"Libre Baskerville", serif',
+    },
+    h3: {
+      fontSize: "28px",
+      fontWeight: "600",
+      margin: "1em 0 0.5em",
+      fontFamily: '"Libre Baskerville", serif',
+    },
+    h4: {
+      fontSize: "24px",
+      fontWeight: "600",
+      margin: "1em 0 0.5em",
+      fontFamily: '"Libre Baskerville", serif',
+    },
+    h5: {
+      fontSize: "20px",
+      fontWeight: "600",
+      margin: "1em 0 0.5em",
+      fontFamily: '"Libre Baskerville", serif',
+    },
+    h6: {
+      fontSize: "18px",
+      fontWeight: "600",
+      margin: "1em 0 0.5em",
+      fontFamily: '"Libre Baskerville", serif',
+    },
+    p: { fontSize: "24px", margin: "0 0 24px 0" },
+    em: { fontStyle: "italic" },
+    strong: { fontWeight: "700" },
+    u: { textDecoration: "underline" },
+    s: { textDecoration: "line-through" },
+    blockquote: {
+      marginLeft: "2rem",
+      paddingLeft: "1.5rem",
+      borderLeft: "3px solid #666",
+      fontStyle: "italic",
+      color: "#444",
+    },
+    code: {
+      fontFamily: "monospace",
+      backgroundColor: "rgba(244, 244, 244, 0.8)",
+      padding: "0.2em 0.4em",
+      borderRadius: "4px",
+      fontSize: "0.95em",
+    },
+    pre: {
+      backgroundColor: "rgba(244, 244, 244, 0.8)",
+      padding: "1.5em",
+      borderRadius: "6px",
+      overflowX: "auto",
+    },
+    ul: { marginLeft: "2rem", paddingLeft: "1rem" },
+    ol: { marginLeft: "2rem", paddingLeft: "1rem" },
+    li: { marginBottom: "0.5em", fontSize: "24px" },
+    a: { color: "#1a0dab", textDecoration: "underline" },
+    "p:last-child": { marginBottom: "0" },
+  },
+}; 

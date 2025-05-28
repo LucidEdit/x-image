@@ -39,7 +39,7 @@ function applyStylesToHTML(rawHtml: string, theme: Theme): HTMLElement {
 
 export async function renderHtmlToImageClientSide(
   rawHtml: string,
-  themeName: string = "light",
+  themeName: string = "book-excerpt",
   returnDataUrlOnly: boolean = false
 ): Promise<string | void> {
   const theme = getThemeByName(themeName);
