@@ -19,5 +19,6 @@ export interface RenderToImageOptions {
     | "tweet"
     | "ugly-debug"
     | "book-excerpt"
-    | "highlighted-book";
+    | "highlighted-book"
+    | "typewritten-page";
 }

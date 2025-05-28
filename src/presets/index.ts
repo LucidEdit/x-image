@@ -2,6 +2,7 @@ import type { RenderToImageOptions } from "../types";
 import { bookExcerptPreset } from "./book-excerpt";
 import { a4PosterPreset } from "./a4-poster";
 import { highlightedBookPreset } from "./highlighted-book";
+import { typewrittenPagePreset } from "./typewritten-page";
 
 export function applyPreset(
   preset?: string,
@@ -14,6 +15,8 @@ export function applyPreset(
       return a4PosterPreset(options);
     case "highlighted-book":
       return highlightedBookPreset(options);
+    case "typewritten-page":
+      return typewrittenPagePreset(options);
     default:
       return {};
   }
@@ -22,3 +25,4 @@ export function applyPreset(
 export * from "./book-excerpt";
 export * from "./a4-poster";
 export * from "./highlighted-book";
+export * from "./typewritten-page";
