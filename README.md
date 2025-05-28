@@ -5,9 +5,8 @@ A server-side HTML to image conversion package, designed to work with Next.js ap
 ## Package Architecture
 
 This is a standalone NPM package that provides server-side HTML-to-image conversion. Here's how it's structured:
-
 ```
-html-to-image-renderer/
+beautiful-text-images/
 ├── package.json        # Package manifest
 ├── tsconfig.json      # TypeScript configuration
 ├── tsup.config.ts     # Build configuration
@@ -22,7 +21,7 @@ html-to-image-renderer/
 - **package.json**: Defines the package configuration
   ```json
   {
-    "name": "html-to-image-renderer",  // Package name
+    "name": "beautiful-text-images",  // Package name
     "version": "0.1.0",               // Package version
     "main": "dist/index.js",          // CommonJS entry point
     "module": "dist/index.mjs",       // ES Modules entry point
@@ -46,7 +45,7 @@ This package can be used directly in the browser to convert HTML content to imag
 ### Basic Usage
 
 ```typescript
-import { renderHtmlToImageClientSide } from 'html-to-image-renderer';
+import { createBeautifulTextImage } from 'beautiful-text-images';
 
 const htmlContent = `
   <div>
@@ -55,7 +54,7 @@ const htmlContent = `
   </div>
 `;
 
-await renderHtmlToImageClientSide(htmlContent);
+await createBeautifulTextImage(htmlContent);
 ```
 
 ### Using Themes
@@ -63,11 +62,11 @@ await renderHtmlToImageClientSide(htmlContent);
 The package comes with built-in themes that you can use:
 
 ```typescript
-import { renderHtmlToImageClientSide, availableThemes } from 'html-to-image-renderer';
+import { createBeautifulTextImage, availableThemes } from 'beautiful-text-images';
 
 console.log(availableThemes); // ['book-excerpt', ...]
 
-await renderHtmlToImageClientSide(htmlContent, {
+await createBeautifulTextImage(htmlContent, {
   theme: 'book-excerpt'
 });
 ```
@@ -78,7 +77,7 @@ If you want to get the image data URL instead of triggering a download:
 
 ```typescript
 import { useState } from 'react';
-import { renderHtmlToImageClientSide } from 'html-to-image-renderer';
+import { createBeautifulTextImage } from 'beautiful-text-images';
 
 function ImagePreview() {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -91,7 +90,7 @@ function ImagePreview() {
       </div>
     `;
 
-    const dataUrl = await renderHtmlToImageClientSide(htmlContent, {
+    const dataUrl = await createBeautifulTextImage(htmlContent, {
       returnDataUrlOnly: true
     });
 
@@ -109,7 +108,7 @@ function ImagePreview() {
 
 ### Options
 
-The `renderHtmlToImageClientSide` function accepts the following options:
+The `createBeautifulTextImage` function accepts the following options:
 
 - `theme` (string): The name of the theme to use (default: 'book-excerpt')
 - `returnDataUrlOnly` (boolean): If true, returns the data URL instead of triggering download
@@ -127,10 +126,10 @@ In Lucid's `package.json`, this package can be linked in two ways:
 {
   "dependencies": {
     // Development: Local File Link
-    "html-to-image-renderer": "file:../html-to-image-renderer",
+    "beautiful-text-images": "file:../beautiful-text-images",
     
     // Production: Version from npm
-    "html-to-image-renderer": "^0.1.0"
+    "beautiful-text-images": "^0.1.0"
   }
 }
 ```
@@ -159,14 +158,14 @@ In Lucid's `package.json`, this package can be linked in two ways:
    npm link
 
    # In Lucid directory
-   npm link html-to-image-renderer
+   npm link beautiful-text-images
    ```
 
    Or update Lucid's package.json to use local files:
    ```json
    {
      "dependencies": {
-       "html-to-image-renderer": "file:../html-to-image-renderer"
+       "beautiful-text-images": "file:../beautiful-text-images"
      }
    }
    ```
