@@ -1,41 +1,9 @@
 import { toPng } from "html-to-image";
 import { Theme } from "./types";
 import { themes } from "./themes";
-
-function getThemeByName(name: string): Theme {
-  const theme = themes.find((t) => t.name === name);
-  if (!theme) {
-    throw new Error(`Theme "${name}" not found`);
-  }
-  return theme;
-}
-
-function injectCustomCSS(css: string): HTMLStyleElement {
-  const styleTag = document.createElement("style");
-  styleTag.setAttribute("data-injected-theme-css", "true");
-  styleTag.textContent = css;
-  document.head.appendChild(styleTag);
-  return styleTag;
-}
-
-function applyStylesToHTML(rawHtml: string, theme: Theme): HTMLElement {
-  const wrapper = document.createElement("div");
-  Object.assign(wrapper.style, theme.wrapperStyle);
-
-  const tempContainer = document.createElement("div");
-  tempContainer.innerHTML = rawHtml;
-
-  Array.from(tempContainer.children).forEach((child) => {
-    const tagName = child.tagName.toLowerCase();
-    const styles = theme.elementStyles?.[tagName];
-    if (styles) {
-      Object.assign((child as HTMLElement).style, styles);
-    }
-    wrapper.appendChild(child);
-  });
-
-  return wrapper;
-}
+import { getThemeByName } from "./lib/get-theme-by-name";
+import { injectCustomCSS } from "./lib/inject-custom-css";
+import { applyStylesToHTML } from "./lib/apply-styles-to-html";
 
 export async function renderHtmlToImageClientSide(
   rawHtml: string,
