@@ -8,11 +8,13 @@ async function testTypewritten() {
     Lucid
   </em>
 </h1>
+<p></p>
+<p></p>
 <p>
   Writing is broken.
 </p>
 <p>
-  The word processor hasn't evolved since 1990. Meanwhile, AI has changed everything. Current tools bolt AI onto decades-old paradigms. It doesn't work.
+  The word processor hasn't evolved since 1990. Meanwhile, AI has changed everything. Current tools retrofit AI onto old foundations. It doesn't work.
 </p>
 <p></p>
 <p>

@@ -32,8 +32,9 @@ export const typewrittenPagePreset = (
 
     h1 {
         font-family: ${baseStyles.fontFamilies.playfairDisplay};
-        font-size: 52px;
+        font-size: 72px;
         margin: 0 0 8px 0;
+        text-align: center;
     }
 
     h2 {
