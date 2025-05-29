@@ -104,7 +104,16 @@ export const a4PosterTheme: Theme = {
       fontSize: "18px",
     },
 
-    a: { color: "#2b6cb0", textDecoration: "underline" },
+    a: {
+      fontSize: "18px",
+      lineHeight: "1.75",
+      margin: "0 0 16px 0",
+      width: "100%",
+      maxWidth: "650px",
+      color: "#000",
+      textDecoration: "underline",
+      display: "block"
+    },
 
     div: {
       fontFamily: '"Playfair Display", serif',

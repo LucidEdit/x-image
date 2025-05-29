@@ -100,7 +100,16 @@ export const manifesto: Theme = {
     em: { fontStyle: "italic" },
     u: { textDecoration: "underline" },
     s: { textDecoration: "line-through" },
-    a: { color: "#2b6cb0", textDecoration: "underline" },
+    a: {
+      fontSize: "20px",
+      lineHeight: "1.6",
+      color: "#000",
+      margin: "0 0 12px 0",
+      textDecoration: "underline",
+      width: "100%",
+      maxWidth: "650px",
+      display: "block",
+    },
 
     ul: {
       margin: "0 0 12px 0",

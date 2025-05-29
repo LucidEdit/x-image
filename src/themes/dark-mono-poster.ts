@@ -63,7 +63,8 @@ export const darkMonoPosterTheme: Theme = {
       fontWeight: "300",
       lineHeight: "1.6",
       color: "#c0c0c0",
-      margin: "0 0 32px 0",
+      margin: "0",
+      marginBottom: "32px",
       width: "100%",
       maxWidth: "1120px",
     },
@@ -132,6 +133,20 @@ export const darkMonoPosterTheme: Theme = {
     "li:last-child": {
       marginBottom: "0",
     },
-    a: { color: "#4ea0ff", textDecoration: "underline" },
+    a: { 
+      fontSize: "32px",
+      fontWeight: "300",
+      lineHeight: "1.6",
+      color: "#c0c0c0 !important",
+      margin: "0",
+      marginBottom: "32px",
+      width: "100%",
+      maxWidth: "1120px",
+      textDecoration: "underline",
+      display: "block",
+    },
+    "a:last-child": {
+      marginBottom: "0",
+    },
   },
 };

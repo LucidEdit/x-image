@@ -54,9 +54,6 @@ export const bookExcerptTheme: Theme = {
       fontWeight: "500",
       margin: "0 0 10px 0",
     },
-    "p:last-child": {
-      marginBottom: "0",
-    },
     em: { fontStyle: "italic" },
     strong: { fontWeight: "700" },
     u: { textDecoration: "underline" },
@@ -120,8 +117,13 @@ export const bookExcerptTheme: Theme = {
       marginBottom: "0",
     },
     a: {
-      color: "#1a0dab",
+      fontFamily: '"Libre Baskerville", serif',
+      fontSize: "22px",
+      fontWeight: "500",
+      margin: "0 0 10px 0",
+      color: "#222 !important",
       textDecoration: "underline",
+      display: "block",
     },
   },
 };
