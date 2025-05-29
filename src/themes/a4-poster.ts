@@ -111,7 +111,8 @@ export const a4PosterTheme: Theme = {
       width: "100%",
       maxWidth: "650px",
       color: "#000",
-      textDecoration: "underline"
+      textDecoration: "underline",
+      display: "block"
     },
 
     div: {

@@ -108,6 +108,7 @@ export const manifesto: Theme = {
       textDecoration: "underline",
       width: "100%",
       maxWidth: "650px",
+      display: "block",
     },
 
     ul: {

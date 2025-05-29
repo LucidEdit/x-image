@@ -54,9 +54,6 @@ export const bookExcerptTheme: Theme = {
       fontWeight: "500",
       margin: "0 0 10px 0",
     },
-    "p:last-child": {
-      marginBottom: "0",
-    },
     em: { fontStyle: "italic" },
     strong: { fontWeight: "700" },
     u: { textDecoration: "underline" },
@@ -126,6 +123,7 @@ export const bookExcerptTheme: Theme = {
       margin: "0 0 10px 0",
       color: "#222 !important",
       textDecoration: "underline",
+      display: "block",
     },
   },
 };

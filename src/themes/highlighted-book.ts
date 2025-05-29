@@ -123,6 +123,7 @@ export const highlightedBookTheme: Theme = {
       color: "#222",
       textDecoration: "underline",
       fontFamily: '"Libre Baskerville", serif',
+      display: "block",
     },
     ":last-child": { 
       marginBottom: "0",

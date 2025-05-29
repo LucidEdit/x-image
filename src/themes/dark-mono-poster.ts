@@ -140,7 +140,8 @@ export const darkMonoPosterTheme: Theme = {
       margin: "0 0 32px 0",
       width: "100%",
       maxWidth: "1120px",
-      textDecoration: "underline"
+      textDecoration: "underline",
+      display: "block",
     },
   },
 };
