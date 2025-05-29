@@ -7,7 +7,6 @@ export const darkMonoPosterTheme: Theme = {
   ],
   wrapperStyle: {
     width: "1366px",
-    minHeight: "768px",
     height: "auto",
     padding: "120px",
     backgroundColor: "#000",
