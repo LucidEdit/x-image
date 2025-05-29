@@ -26,9 +26,11 @@ export const manifesto: Theme = {
       marginBottom: "0",
     },
     img: {
-      width: "220px",
+      maxWidth: "180px",
+      maxHeight: "100px",
+      width: "auto",
       height: "auto",
-      maxWidth: "100%",
+      objectFit: "contain",
       marginBottom: "72px",
     },
 
