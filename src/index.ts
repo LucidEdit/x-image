@@ -3,6 +3,7 @@ import { themes } from "./themes";
 import { getThemeByName } from "./lib/get-theme-by-name";
 import { injectCustomCSS } from "./lib/inject-custom-css";
 import { applyStylesToHTML } from "./lib/apply-styles-to-html";
+import { loadFonts } from "./lib/load-fonts";
 
 export async function createBeautifulTextImage(
   rawHtml: string,
@@ -26,6 +27,10 @@ export async function createBeautifulTextImage(
 
   const themeObj = getThemeByName(theme);
 
+  if (themeObj.fontLinks?.length) {
+    await loadFonts(themeObj.fontLinks);
+  }
+
   let styleTag: HTMLStyleElement | null = null;
   if (themeObj.customCSS) {
     styleTag = injectCustomCSS(themeObj.customCSS);
@@ -33,6 +38,8 @@ export async function createBeautifulTextImage(
 
   const styledElement = applyStylesToHTML(rawHtml, themeObj);
   document.body.appendChild(styledElement);
+
+  await new Promise((resolve) => setTimeout(resolve, 100));
 
   const themeWidth = parseInt(themeObj.wrapperStyle.width as string) || 1000;
   const pixelRatio = 2;
@@ -48,6 +55,11 @@ export async function createBeautifulTextImage(
   document.body.removeChild(styledElement);
   if (styleTag) {
     document.head.removeChild(styleTag);
+  }
+
+  const fontStyle = document.querySelector("style[data-injected-fonts]");
+  if (fontStyle) {
+    document.head.removeChild(fontStyle);
   }
 
   if (returnDataUrlOnly) {

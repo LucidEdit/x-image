@@ -9,12 +9,11 @@ export const manifesto: Theme = {
 
   wrapperStyle: {
     width: "794px",
-    height: "1123px",
     backgroundColor: "#f8f6f0",
     fontFamily: '"Inter", sans-serif',
     color: "#000",
     textAlign: "left",
-    padding: "72px",
+    padding: "160px 72px",
     boxSizing: "border-box",
     display: "flex",
     flexDirection: "column",
@@ -33,7 +32,7 @@ export const manifesto: Theme = {
     p: {
       fontSize: "20px",
       lineHeight: "1.6",
-      margin: "0 0 12px 0", 
+      margin: "0 0 12px 0",
       width: "100%",
       maxWidth: "650px",
     },
@@ -44,6 +43,7 @@ export const manifesto: Theme = {
       margin: "24px 0 12px 0",
       width: "100%",
       maxWidth: "650px",
+      fontFamily: '"Playfair Display", serif',
     },
     h2: {
       fontSize: "32px",
@@ -51,6 +51,7 @@ export const manifesto: Theme = {
       margin: "20px 0 10px 0",
       width: "100%",
       maxWidth: "650px",
+      fontFamily: '"Playfair Display", serif',
     },
     h3: {
       fontSize: "26px",
@@ -58,6 +59,7 @@ export const manifesto: Theme = {
       margin: "18px 0 10px 0",
       width: "100%",
       maxWidth: "650px",
+      fontFamily: '"Playfair Display", serif',
     },
     h4: {
       fontSize: "22px",
@@ -65,6 +67,7 @@ export const manifesto: Theme = {
       margin: "16px 0 8px 0",
       width: "100%",
       maxWidth: "650px",
+      fontFamily: '"Playfair Display", serif',
     },
     h5: {
       fontSize: "18px",
@@ -72,6 +75,7 @@ export const manifesto: Theme = {
       margin: "14px 0 6px 0",
       width: "100%",
       maxWidth: "650px",
+      fontFamily: '"Playfair Display", serif',
     },
     h6: {
       fontSize: "16px",
@@ -81,6 +85,7 @@ export const manifesto: Theme = {
       maxWidth: "650px",
       textTransform: "uppercase",
       letterSpacing: "1px",
+      fontFamily: '"Playfair Display", serif',
     },
 
     strong: { fontWeight: "600" },
