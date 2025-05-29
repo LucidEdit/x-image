@@ -41,12 +41,12 @@ export async function createBeautifulTextImage(
 
   await new Promise((resolve) => setTimeout(resolve, 100));
 
-  const themeWidth = parseInt(themeObj.wrapperStyle.width as string) || 1000;
+  const themeWidth = parseInt(String(themeObj.wrapperStyle.width)) || 1000;
   const pixelRatio = 2;
 
   const dataUrl = await toPng(styledElement, {
     pixelRatio,
-    backgroundColor: themeObj.wrapperStyle.backgroundColor || "#ffffff",
+    backgroundColor: String(themeObj.wrapperStyle.backgroundColor || "#ffffff"),
     canvasWidth: themeWidth * pixelRatio,
     canvasHeight: styledElement.offsetHeight * pixelRatio,
     skipAutoScale: false,
