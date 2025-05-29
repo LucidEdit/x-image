@@ -27,11 +27,17 @@ export const bookExcerptTheme: Theme = {
       fontWeight: "600",
       margin: "0 0 28px 0",
     },
+    "h1:last-child": {
+      marginBottom: "0",
+    },
     h2: {
       fontFamily: '"Libre Baskerville", serif',
       fontSize: "34px",
       fontWeight: "600",
       margin: "0 0 24px 0",
+    },
+    "h2:last-child": {
+      marginBottom: "0",
     },
     h3: {
       fontFamily: '"Libre Baskerville", serif',
@@ -39,11 +45,17 @@ export const bookExcerptTheme: Theme = {
       fontWeight: "600",
       margin: "0 0 20px 0",
     },
+    "h3:last-child": {
+      marginBottom: "0",
+    },
     p: {
       fontFamily: '"Libre Baskerville", serif',
       fontSize: "22px",
       fontWeight: "500",
       margin: "0 0 10px 0",
+    },
+    "p:last-child": {
+      marginBottom: "0",
     },
     em: { fontStyle: "italic" },
     strong: { fontWeight: "700" },
@@ -56,6 +68,9 @@ export const bookExcerptTheme: Theme = {
       fontStyle: "italic",
       color: "#444",
       fontFamily: '"Libre Baskerville", serif',
+    },
+    "blockquote:last-child": {
+      marginBottom: "0",
     },
     code: {
       fontFamily: "monospace",
@@ -71,6 +86,9 @@ export const bookExcerptTheme: Theme = {
       overflowX: "auto",
       margin: "0 0 24px 0",
     },
+    "pre:last-child": {
+      marginBottom: "0",
+    },
     ul: {
       fontFamily: '"Libre Baskerville", serif',
       fontSize: "22px",
@@ -78,6 +96,9 @@ export const bookExcerptTheme: Theme = {
       margin: "0 0 20px 40px",
       paddingLeft: "20px",
       listStyleType: "disc",
+    },
+    "ul:last-child": {
+      marginBottom: "0",
     },
     ol: {
       fontFamily: '"Libre Baskerville", serif',
@@ -87,10 +108,16 @@ export const bookExcerptTheme: Theme = {
       paddingLeft: "20px",
       listStyleType: "decimal",
     },
+    "ol:last-child": {
+      marginBottom: "0",
+    },
     li: {
       marginBottom: "8px",
       fontSize: "22px",
       fontWeight: "500",
+    },
+    "li:last-child": {
+      marginBottom: "0",
     },
     a: {
       color: "#1a0dab",

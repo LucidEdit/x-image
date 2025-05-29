@@ -22,6 +22,9 @@ export const manifesto: Theme = {
   },
 
   elementStyles: {
+    ":last-child": {
+      marginBottom: "0",
+    },
     img: {
       width: "220px",
       height: "auto",
@@ -35,6 +38,9 @@ export const manifesto: Theme = {
       margin: "0 0 12px 0",
       width: "100%",
       maxWidth: "650px",
+    },
+    "p:last-child": {
+      marginBottom: "0",
     },
 
     h1: {

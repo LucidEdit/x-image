@@ -121,7 +121,7 @@ export const highlightedBookTheme: Theme = {
       textDecoration: "underline",
       fontFamily: '"Libre Baskerville", serif',
     },
-    "p:last-child": { 
+    ":last-child": { 
       marginBottom: "0",
       fontFamily: '"Libre Baskerville", serif',
     },
@@ -133,46 +133,5 @@ export const highlightedBookTheme: Theme = {
       zIndex: "1",
       fontFamily: '"Libre Baskerville", serif',
     },
-    customCSS: `
-      mark {
-        background: none;
-        position: relative;
-        padding: 0 4px;
-        margin: 0 -4px;
-        z-index: 1;
-        font-family: "Libre Baskerville", serif;
-      }
-
-      mark::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: rgba(255, 241, 118, 0.9);
-        mix-blend-mode: multiply;
-        filter: blur(1px);
-        transform: rotate(-0.5deg);
-        clip-path: polygon(0% 3%, 100% 0%, 99% 97%, 2% 100%);
-        border-radius: 2px;
-        z-index: -2;
-      }
-
-      mark::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image: linear-gradient(
-          transparent 65%,
-          rgba(255, 255, 255, 0.25) 65%,
-          rgba(255, 255, 255, 0.25) 85%,
-          transparent 85%
-        );
-        filter: blur(0.8px);
-        transform: rotate(0.15deg);
-        clip-path: polygon(0% 0%, 100% 2%, 98% 96%, 2% 98%);
-        border-radius: 2px;
-        z-index: -1;
-        pointer-events: none;
-      }
-    `,
   },
 }; 
