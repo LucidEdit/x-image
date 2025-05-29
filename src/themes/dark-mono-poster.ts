@@ -29,6 +29,9 @@ export const darkMonoPosterTheme: Theme = {
       width: "100%",
       maxWidth: "1120px",
     },
+    "h1:last-child": {
+      marginBottom: "0",
+    },
     h2: {
       fontSize: "40px",
       fontWeight: "400",
@@ -38,6 +41,9 @@ export const darkMonoPosterTheme: Theme = {
       margin: "0 0 60px 0",
       width: "100%",
       maxWidth: "1120px",
+    },
+    "h2:last-child": {
+      marginBottom: "0",
     },
     h3: {
       fontSize: "32px",
@@ -49,6 +55,9 @@ export const darkMonoPosterTheme: Theme = {
       width: "100%",
       maxWidth: "1120px",
     },
+    "h3:last-child": {
+      marginBottom: "0",
+    },
     p: {
       fontSize: "32px",
       fontWeight: "300",
@@ -57,6 +66,9 @@ export const darkMonoPosterTheme: Theme = {
       margin: "0 0 32px 0",
       width: "100%",
       maxWidth: "1120px",
+    },
+    "p:last-child": {
+      marginBottom: "0",
     },
     em: { fontStyle: "italic" },
     strong: { fontWeight: "700", color: "#ffffff" },
@@ -69,6 +81,9 @@ export const darkMonoPosterTheme: Theme = {
       fontStyle: "italic",
       color: "#cccccc",
       maxWidth: "1080px",
+    },
+    "blockquote:last-child": {
+      marginBottom: "0",
     },
     code: {
       fontFamily: '"Space Mono", monospace',
@@ -86,6 +101,9 @@ export const darkMonoPosterTheme: Theme = {
       margin: "0 0 32px 0",
       maxWidth: "1120px",
     },
+    "pre:last-child": {
+      marginBottom: "0",
+    },
     ul: {
       fontSize: "32px",
       fontWeight: "300",
@@ -93,6 +111,9 @@ export const darkMonoPosterTheme: Theme = {
       color: "#c0c0c0",
       margin: "0 0 32px 40px",
       listStyleType: "disc",
+    },
+    "ul:last-child": {
+      marginBottom: "0",
     },
     ol: {
       fontSize: "32px",
@@ -102,8 +123,15 @@ export const darkMonoPosterTheme: Theme = {
       margin: "0 0 32px 40px",
       listStyleType: "decimal",
     },
-    li: { marginBottom: "8px" },
+    "ol:last-child": {
+      marginBottom: "0",
+    },
+    li: { 
+      marginBottom: "8px",
+    },
+    "li:last-child": {
+      marginBottom: "0",
+    },
     a: { color: "#4ea0ff", textDecoration: "underline" },
-    "p:last-child": { marginBottom: "0" },
   },
 };
