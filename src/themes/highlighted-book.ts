@@ -117,7 +117,10 @@ export const highlightedBookTheme: Theme = {
       fontFamily: '"Libre Baskerville", serif',
     },
     a: { 
-      color: "#1a0dab", 
+      fontSize: "24px",
+      lineHeight: "1.7",
+      margin: "0 0 24px 0",
+      color: "#222",
       textDecoration: "underline",
       fontFamily: '"Libre Baskerville", serif',
     },
