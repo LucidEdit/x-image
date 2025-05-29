@@ -10,7 +10,7 @@ export const manifesto: Theme = {
   wrapperStyle: {
     width: "794px",
     height: "1123px",
-    backgroundColor: "#f7f6f1",
+    backgroundColor: "#f8f6f0",
     fontFamily: '"Inter", sans-serif',
     color: "#000",
     textAlign: "left",
@@ -27,7 +27,7 @@ export const manifesto: Theme = {
       width: "220px",
       height: "auto",
       maxWidth: "100%",
-      marginBottom: "16px",
+      marginBottom: "72px",
     },
 
     p: {
