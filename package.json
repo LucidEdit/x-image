@@ -1,6 +1,6 @@
 {
   "name": "beautiful-text-images",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Create beautiful images from text and HTML content, perfect for social media sharing",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
