@@ -35,8 +35,7 @@
   },
   "homepage": "https://github.com/LucidEdit/x-image#readme",
   "dependencies": {
-    "html-to-image": "^1.11.13",
-    "puppeteer": "^22.0.0"
+    "html-to-image": "^1.11.13"
   },
   "devDependencies": {
     "@types/jest": "^29.0.0",
