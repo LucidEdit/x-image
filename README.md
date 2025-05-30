@@ -2,6 +2,8 @@
 
 A client side HTML to image conversion package that creates beautiful images from text and HTML content, perfect for social media sharing.
 
+Developed by [Lucid](https://getlucid.app). Try it out at [getlucid.app/text-to-image](https://getlucid.app/text-to-image)!
+
 ## Package Architecture
 
 This is a standalone NPM package that provides client-side HTML-to-image conversion. Here's how it's structured:
