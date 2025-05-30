@@ -10,7 +10,7 @@ export const bookExcerptTheme: Theme = {
     padding: "60px 80px",
     backgroundColor: "#fff",
     backgroundImage:
-      'url("https://pbs.twimg.com/media/Grhndq3WcAAkAec?format=jpg&name=large")',
+      'url("https://knloimxfzjvgwpztdaci.supabase.co/storage/v1/object/public/x-image-bg//Grhndq3WcAAkAec.jpeg")',
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
