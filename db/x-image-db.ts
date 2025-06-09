@@ -9,6 +9,6 @@ const schema = {
   xImages: xImagesTable,
 };
 
-const client = postgres(process.env.X_IMAGE_DATABASE_URL!);
+const client = postgres(process.env.DATABASE_URL!);
 
 export const xImageDb = drizzle(client, { schema });

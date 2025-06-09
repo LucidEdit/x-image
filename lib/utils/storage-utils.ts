@@ -11,8 +11,8 @@ export async function uploadXImage(
 ): Promise<{ url: string; filename: string; id: string }> {
   try {
     const supabase = createClient(
-      process.env.NEXT_PUBLIC_X_IMAGE_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_X_IMAGE_SUPABASE_ANON_KEY!,
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     );
 
     // Create filename with timestamp for natural sorting
