@@ -1,34 +1,5 @@
 import { Editor } from "@tiptap/react";
 
-export interface TextState {
-  content: string;
-  cursorPosition: number;
-}
-
-export type ContentBlockType =
-  | "paragraph"
-  | "list"
-  | "listItem"
-  | "h1"
-  | "h2"
-  | "h3"
-  | "blockquote";
-
-export interface EditorHistory {
-  past: TextState[];
-  present: TextState;
-  future: TextState[];
-}
-
-export interface ContentBlock {
-  id: string;
-  type: ContentBlockType;
-  content: string;
-  range: {
-    from: number;
-    to: number;
-  };
-}
 
 export interface TiptapEditorState {
   editor: Editor | null;

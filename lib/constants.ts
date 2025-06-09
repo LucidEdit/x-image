@@ -1,8 +1,4 @@
-export const EMPTY_DOCUMENT_SUGGESTIONS = [
-  "Write a blog post about SaaS",
-  "What are some trending topics I could write about?",
-  "Create a professional letter template",
-] as const;
+
 
 export const HIGHLIGHT_COLORS = [
   { name: "Yellow", color: "hsl(var(--highlight-yellow))" },
