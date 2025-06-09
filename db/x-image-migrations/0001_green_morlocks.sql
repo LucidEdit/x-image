@@ -1,0 +1,1 @@
+ALTER TABLE "x_images" ADD COLUMN "html_input" text DEFAULT 'legacy-html-input' NOT NULL;
