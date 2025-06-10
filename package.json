@@ -1,7 +1,34 @@
 {
-  "name": "beautiful-text-images",
+  "name": "x-image",
   "version": "0.1.0",
-  "private": true,
+  "description": "A web application for converting HTML content to beautiful images, perfect for social media sharing and visual content creation",
+  "private": false,
+  "author": "Lucid <https://getlucid.app>",
+  "license": "MIT",
+  "homepage": "https://getlucid.app/text-to-image",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/x-image.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/x-image/issues"
+  },
+  "keywords": [
+    "html-to-image",
+    "text-to-image",
+    "image-generation",
+    "nextjs",
+    "react",
+    "typescript",
+    "tailwindcss",
+    "supabase",
+    "social-media",
+    "visual-content"
+  ],
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
