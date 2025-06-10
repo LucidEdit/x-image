@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:generate": "npx drizzle-kit generate --config=drizzle.x-image.config.ts",
+    "db:migrate": "npx drizzle-kit migrate --config=drizzle.x-image.config.ts"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.14",
