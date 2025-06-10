@@ -313,3 +313,46 @@
 .editor-content h3 + p {
   margin-top: 0.25rem;
 }
+
+
+/* Custom Tiptap Editor Spacing Fixes */
+.tiptap p {
+  margin: 0.5rem 0;
+}
+
+.tiptap code {
+  background-color: hsl(var(--muted));
+  border-radius: 0.3rem;
+  color: hsl(var(--foreground));
+  font-size: 0.85em;
+  padding: 0.2em 0.4em;
+}
+
+.tiptap .inline-code::before,
+.tiptap .inline-code::after {
+  content: '';
+}
+
+.tiptap ul,
+.tiptap ol {
+  margin: 0.75rem 0;
+}
+
+.tiptap li {
+  margin: 0.25rem 0;
+}
+
+.tiptap h1 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.tiptap h2 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.tiptap h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
