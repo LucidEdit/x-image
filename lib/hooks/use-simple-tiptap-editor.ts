@@ -52,11 +52,7 @@ export function useSimpleTiptapEditor(
       editorProps: {
         attributes: {
           class: cn(
-            "prose prose-stone dark:prose-invert prose-headings:font-semibold",
-            "prose-p:text-base prose-p:leading-relaxed prose-p:font-medium",
-            "prose-blockquote:border-l-2 prose-blockquote:border-primary/20 prose-blockquote:text-muted-foreground prose-blockquote:pl-4",
-            "prose-strong:text-foreground/90 prose-em:text-foreground/90",
-            "focus:outline-none",
+            "editor-content focus:outline-none",
             "max-w-none p-4",
             "min-h-[400px] w-full",
           ),
