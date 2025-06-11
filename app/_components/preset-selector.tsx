@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { BookOpen, FileText, Moon, Upload, X, Check } from "lucide-react";
+import { BookOpen, FileText, Moon, Upload, X, Check, Highlighter } from "lucide-react";
 import { useRef } from "react";
 import { toast } from "sonner";
 
@@ -43,6 +43,14 @@ const PRESETS: Preset[] = [
     icon: Moon,
     backgroundImage:
       "https://knloimxfzjvgwpztdaci.supabase.co/storage/v1/object/public/x-image-bg//fddf3ab89ab8e9c7fcf61bd201263e8c.jpg",
+  },
+  {
+    id: "marker-highlight",
+    label: "Marker Highlight",
+    description: "Clean style with organic highlighter effects",
+    icon: Highlighter,
+    backgroundImage:
+      "https://knloimxfzjvgwpztdaci.supabase.co/storage/v1/object/public/x-image-bg//2caf27eddbf639b18156de8e2e7fd38f.jpg",
   },
 ];
 

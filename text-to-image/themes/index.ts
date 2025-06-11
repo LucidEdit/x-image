@@ -4,6 +4,7 @@ import { a4PosterTheme } from "./a4-poster";
 import { highlightedBookTheme } from "./highlighted-book";
 import { darkMonoPosterTheme } from "./dark-mono-poster";
 import { manifesto } from "./manifesto";
+import { markerHighlightTheme } from "./marker-highlight";
 
 export const themes: Theme[] = [
   bookExcerptTheme,
@@ -11,4 +12,5 @@ export const themes: Theme[] = [
   highlightedBookTheme,
   darkMonoPosterTheme,
   manifesto,
+  markerHighlightTheme,
 ];

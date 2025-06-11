@@ -27,7 +27,7 @@ export interface HtmlToImageOptions {
   backgroundImage?: string;
   transparent?: boolean;
   markdown?: string;
-  preset?: "a4-poster" | "manifesto" | "book-excerpt" | "dark-mono-poster" | "highlighted-book";
+  preset?: "a4-poster" | "manifesto" | "book-excerpt" | "dark-mono-poster" | "highlighted-book" | "marker-highlight";
 }
 
 interface LocalImageResult {
@@ -43,6 +43,7 @@ const presetToThemeMap: Record<string, string> = {
   "highlighted-book": "highlighted-book",
   manifesto: "manifesto",
   "dark-mono-poster": "dark-mono-poster",
+  "marker-highlight": "marker-highlight",
 };
 
 // Map light mode highlight colors to dark mode colors
@@ -111,6 +112,14 @@ export function useHtmlToImage(
       if (options.preset === "dark-mono-poster") {
         processedHtml = transformHighlightColorsForDarkMode(html);
       }
+      
+      // Remove background-color from mark elements for marker-highlight theme
+      if (options.preset === "marker-highlight") {
+        processedHtml = processedHtml.replace(
+          /(<mark[^>]*?)style="background-color:[^;"]*(;[^"]*)?"/g,
+          '$1style="$2"'
+        );
+      }
 
       // Use the new client-side rendering function
       const dataUrl = await createBeautifulTextImage(processedHtml, {
@@ -164,7 +173,7 @@ export function useHtmlToImage(
     html: string,
     preset: string,
   ): Promise<ImportedImageResult> => {
-    const result = await generateImage(html, { preset: preset as "a4-poster" | "manifesto" | "book-excerpt" | "dark-mono-poster" | "highlighted-book" });
+    const result = await generateImage(html, { preset: preset as "a4-poster" | "manifesto" | "book-excerpt" | "dark-mono-poster" | "highlighted-book" | "marker-highlight" });
 
     // Upload to x-image only if enabled (don't await to avoid blocking UI)
     if (uploadToXImage) {
