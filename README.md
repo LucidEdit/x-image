@@ -2,7 +2,7 @@
 
 A web application for converting HTML content to beautiful images, perfect for social media sharing and visual content creation.
 
-Developed by [Lucid](https://getlucid.app). Try it out at [getlucid.app/text-to-image](https://getlucid.app/text-to-image)!
+Developed by [Lucid](https://getlucid.app). Try it out at [getlucid.app/text-to-image](https://getlucid.app/text-to-image).
 
 ## Tech Stack
 

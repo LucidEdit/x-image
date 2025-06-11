@@ -8,10 +8,10 @@
   "homepage": "https://getlucid.app/text-to-image",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/x-image.git"
+    "url": "https://github.com/LucidEdit/x-image"
   },
   "bugs": {
-    "url": "https://github.com/your-username/x-image/issues"
+    "url": "https://github.com/LucidEdit/x-image/issues"
   },
   "keywords": [
     "html-to-image",
