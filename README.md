@@ -80,11 +80,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Available Themes
 
-The application includes several built-in themes:
+The application includes three built-in themes:
 
-- **`book-excerpt`** (default) - Clean book-style layout with serif fonts
-- **`a4-poster`** - A4 poster format for documents
-- **`highlighted-book`** - Book layout with highlighting capabilities
+- **`book-excerpt`** - Clean book-style layout with serif fonts
 - **`dark-mono-poster`** - Dark theme with monospace fonts
 - **`manifesto`** - Modern manifesto-style layout with mixed typography
 
