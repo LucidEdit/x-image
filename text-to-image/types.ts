@@ -1,5 +1,10 @@
 export interface Theme {
   name: string;
+  label: string;
+  description: string;
+  icon: string;
+  
+  backgroundImage?: string;
   fontLinks?: string[];
   wrapperStyle: Record<string, string | number>;
   elementStyles?: Record<string, Record<string, string | number>>;
