@@ -7,44 +7,26 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { BookOpen, FileText, Moon, Upload, X, Check } from "lucide-react";
+import { 
+  Upload, 
+  X, 
+  Check, 
+  BookOpen, 
+  FileText, 
+  Moon, 
+  Sparkles,
+  type LucideIcon 
+} from "lucide-react";
 import { useRef } from "react";
 import { toast } from "sonner";
+import { themes } from "@/text-to-image/themes";
 
-interface Preset {
-  id: string;
-  label: string;
-  description: string;
-  icon: React.ComponentType<{ className?: string }>;
-  backgroundImage?: string;
-}
-
-const PRESETS: Preset[] = [
-  {
-    id: "manifesto",
-    label: "Manifesto",
-    description: "Bold statement style",
-    icon: FileText,
-    backgroundImage:
-      "https://knloimxfzjvgwpztdaci.supabase.co/storage/v1/object/public/x-image-bg//6aaf9bb5500ea47b7cf7fe2525c12b0c.jpg",
-  },
-  {
-    id: "book-excerpt",
-    label: "Book Excerpt",
-    description: "Classic book-style with serif fonts",
-    icon: BookOpen,
-    backgroundImage:
-      "https://knloimxfzjvgwpztdaci.supabase.co/storage/v1/object/public/x-image-bg//2caf27eddbf639b18156de8e2e7fd38f.jpg",
-  },
-  {
-    id: "dark-mono-poster",
-    label: "Dark Mode",
-    description: "Mono style dark mode",
-    icon: Moon,
-    backgroundImage:
-      "https://knloimxfzjvgwpztdaci.supabase.co/storage/v1/object/public/x-image-bg//fddf3ab89ab8e9c7fcf61bd201263e8c.jpg",
-  },
-];
+const iconMap: Record<string, LucideIcon> = {
+  BookOpen,
+  FileText,
+  Moon,
+  Sparkles,
+};
 
 interface PresetSelectorProps {
   selectedPreset: string | null;
@@ -102,19 +84,19 @@ export function PresetSelector({
         onValueChange={onPresetChange}
         className="grid grid-cols-1 gap-3 sm:grid-cols-3"
       >
-        {PRESETS.map((preset) => {
-          const Icon = preset.icon;
-          const isSelected = selectedPreset === preset.id;
-          const isManifesto = preset.id === "manifesto";
+        {themes.map((theme) => {
+          const Icon = iconMap[theme.icon] || FileText; // Fallback to FileText
+          const isSelected = selectedPreset === theme.name;
+          const isManifesto = theme.name === "manifesto";
 
           return (
-            <div key={preset.id} className="relative">
+            <div key={theme.name} className="relative">
               <RadioGroupItem
-                value={preset.id}
-                id={preset.id}
+                value={theme.name}
+                id={theme.name}
                 className="peer sr-only"
               />
-              <Label htmlFor={preset.id} className="block cursor-pointer">
+              <Label htmlFor={theme.name} className="block cursor-pointer">
                 <Card
                   className={cn(
                     "group relative flex h-full flex-col items-center gap-2 overflow-hidden p-5 text-center transition-all duration-300 ease-out hover:shadow-md",
@@ -126,7 +108,7 @@ export function PresetSelector({
                   <div
                     className="absolute inset-0 z-0 transition-opacity duration-300"
                     style={{
-                      backgroundImage: `url(${preset.backgroundImage})`,
+                      backgroundImage: `url(${theme.backgroundImage})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
@@ -153,10 +135,10 @@ export function PresetSelector({
 
                     <div className="space-y-1">
                       <div className="font-medium text-white">
-                        {preset.label}
+                        {theme.label}
                       </div>
                       <div className="text-xs text-white/80">
-                        {preset.description}
+                        {theme.description}
                       </div>
                     </div>
 
