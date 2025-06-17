@@ -4,7 +4,7 @@ import { registerTheme } from "./registry";
 export const bookExcerptTheme: Theme = {
   name: "book-excerpt",
   label: "Book Excerpt",
-  description: "Classic book-style with serif fonts",
+  description: "Classic book-style",
   icon: "BookOpen",
   backgroundImage: "https://knloimxfzjvgwpztdaci.supabase.co/storage/v1/object/public/x-image-bg//2caf27eddbf639b18156de8e2e7fd38f.jpg",
   fontLinks: [
