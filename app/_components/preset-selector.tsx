@@ -14,7 +14,6 @@ import {
   BookOpen, 
   FileText, 
   Moon, 
-  Sparkles,
   type LucideIcon 
 } from "lucide-react";
 import { useRef } from "react";
@@ -25,7 +24,6 @@ const iconMap: Record<string, LucideIcon> = {
   BookOpen,
   FileText,
   Moon,
-  Sparkles,
 };
 
 interface PresetSelectorProps {
