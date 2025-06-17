@@ -1,7 +1,12 @@
 import { Theme } from "../types";
+import { registerTheme } from "./registry";
 
 export const bookExcerptTheme: Theme = {
   name: "book-excerpt",
+  label: "Book Excerpt",
+  description: "Classic book-style with serif fonts",
+  icon: "BookOpen",
+  backgroundImage: "https://knloimxfzjvgwpztdaci.supabase.co/storage/v1/object/public/x-image-bg//2caf27eddbf639b18156de8e2e7fd38f.jpg",
   fontLinks: [
     "https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap",
   ],
@@ -127,3 +132,5 @@ export const bookExcerptTheme: Theme = {
     },
   },
 };
+
+registerTheme(bookExcerptTheme);
