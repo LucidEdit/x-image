@@ -3,6 +3,9 @@ import { Theme } from "../types";
 const themeRegistry = new Map<string, Theme>();
 
 export const registerTheme = (theme: Theme) => {
+  if (themeRegistry.has(theme.name)) {
+    console.warn(`Warning: Theme "${theme.name}" already exists and will be overwritten. This might indicate a naming conflict.`);
+  }
   themeRegistry.set(theme.name, theme);
 };
 
