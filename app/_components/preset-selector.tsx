@@ -106,9 +106,11 @@ export function PresetSelector({
                   <div
                     className="absolute inset-0 z-0 transition-opacity duration-300"
                     style={{
-                      backgroundImage: `url(${theme.backgroundImage})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
+                      ...(theme.backgroundImage && {
+                        backgroundImage: `url(${theme.backgroundImage})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }),
                     }}
                   />
                   <div className="absolute inset-0 z-0 bg-black/40 transition-opacity duration-300" />

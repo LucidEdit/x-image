@@ -87,21 +87,32 @@ export function useHtmlToImage(
 
   const generateImage = async (
     html: string,
-    options: HtmlToImageOptions = {}
+    options: HtmlToImageOptions & { _internalSkipLoading?: boolean } = {}
   ): Promise<LocalImageResult> => {
-    setIsGenerating(true);
+    const { _internalSkipLoading = false, ...imageOptions } = options;
+
+    if (!_internalSkipLoading) {
+      setIsGenerating(true);
+    }
     setError(null);
 
     try {
       const availableThemes = getAvailableThemeNames();
+
+      if (availableThemes.length === 0) {
+        throw new Error(
+          "No themes are registered. Please ensure theme configuration is properly initialized."
+        );
+      }
+
       const themeName =
-        options.preset && availableThemes.includes(options.preset)
-          ? options.preset
-          : availableThemes[0] || "book-excerpt";
+        imageOptions.preset && availableThemes.includes(imageOptions.preset)
+          ? imageOptions.preset
+          : availableThemes[0];
 
       // Transform highlight colors for dark mode presets
       let processedHtml = html;
-      if (options.preset === "dark-mono-poster") {
+      if (imageOptions.preset === "dark-mono-poster") {
         processedHtml = transformHighlightColorsForDarkMode(html);
       }
 
@@ -147,7 +158,9 @@ export function useHtmlToImage(
       setError(message);
       throw err;
     } finally {
-      setIsGenerating(false);
+      if (!_internalSkipLoading) {
+        setIsGenerating(false);
+      }
     }
   };
 
@@ -184,7 +197,10 @@ export function useHtmlToImage(
       // Generate all variants
       const variants = await Promise.all(
         selectedThemes.map(async (theme) => {
-          const result = await generateImage(html, { preset: theme.name });
+          const result = await generateImage(html, {
+            preset: theme.name,
+            _internalSkipLoading: true,
+          });
 
           // Upload to x-image only if enabled (don't await to avoid blocking UI)
           if (uploadToXImage) {
