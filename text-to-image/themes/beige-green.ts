@@ -4,7 +4,7 @@ import { registerTheme } from "./registry";
 export const soloWantedForest: Theme = {
   name: "soloWantedForest",
   label: "Beige Green",
-  description: "Clay background with evergreen type",
+  description: "Cursor for baddies",
   icon: "Leaf",
   backgroundImage:
     "https://i.pinimg.com/736x/37/02/65/370265ace16275053c7df66c1c03ac70.jpg",
