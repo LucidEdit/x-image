@@ -1,7 +1,12 @@
 import { Theme } from "../types";
+import { registerTheme } from "./registry";
 
 export const manifesto: Theme = {
   name: "manifesto",
+  label: "Manifesto",
+  description: "Bold statement style",
+  icon: "FileText",
+  backgroundImage: "https://knloimxfzjvgwpztdaci.supabase.co/storage/v1/object/public/x-image-bg//6aaf9bb5500ea47b7cf7fe2525c12b0c.jpg",
   fontLinks: [
     "https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap",
     "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap",
@@ -194,3 +199,5 @@ export const manifesto: Theme = {
     },
   },
 };
+
+registerTheme(manifesto);

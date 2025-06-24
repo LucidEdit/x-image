@@ -1,7 +1,12 @@
 import { Theme } from "../types";
+import { registerTheme } from "./registry";
 
 export const darkMonoPosterTheme: Theme = {
   name: "dark-mono-poster",
+  label: "Dark Mode",
+  description: "Mono style dark mode",
+  icon: "Moon",
+  backgroundImage: "https://knloimxfzjvgwpztdaci.supabase.co/storage/v1/object/public/x-image-bg//fddf3ab89ab8e9c7fcf61bd201263e8c.jpg",
   fontLinks: [
     "https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap",
   ],
@@ -150,3 +155,5 @@ export const darkMonoPosterTheme: Theme = {
     },
   },
 };
+
+registerTheme(darkMonoPosterTheme);
