@@ -124,20 +124,50 @@ export default function SimplePage() {
               </Link>
               <div className="text-muted-foreground text-sm">Text to Image</div>
             </div>
-            <Link
-              href="https://getlucid.app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                variant="outline"
-                size="sm"
-                className="group border-[#7C3AED]/20 bg-gradient-to-r from-[#7C3AED]/5 to-[#5B21B6]/5 text-[#7C3AED] transition-all duration-300 hover:border-[#7C3AED]/40 hover:from-[#7C3AED]/10 hover:to-[#5B21B6]/10 hover:shadow-sm"
+            <div className="flex items-center gap-3">
+              <Link
+                href="https://github.com/LucidEdit/x-image"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
               >
-                Try Lucid
-                <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
-              </Button>
-            </Link>
+                <Image
+                  src="/icons/github-mark.svg"
+                  alt="GitHub"
+                  width={16}
+                  height={16}
+                  className="size-4"
+                />
+              </Link>
+              <Link
+                href="https://x.com/LucidEditor"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Image
+                  src="/icons/x-social-media-white-icon.svg"
+                  alt="X (Twitter)"
+                  width={16}
+                  height={16}
+                  className="size-4 invert dark:invert-0"
+                />
+              </Link>
+              <Link
+                href="https://getlucid.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="group border-[#7C3AED]/20 bg-gradient-to-r from-[#7C3AED]/5 to-[#5B21B6]/5 text-[#7C3AED] transition-all duration-300 hover:border-[#7C3AED]/40 hover:from-[#7C3AED]/10 hover:to-[#5B21B6]/10 hover:shadow-sm"
+                >
+                  Try Lucid
+                  <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </header>
