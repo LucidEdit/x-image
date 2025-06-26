@@ -1,10 +1,10 @@
 import { Theme } from "../types";
 import { registerTheme } from "./registry";
 
-export const soloWantedForest: Theme = {
-  name: "soloWantedForest",
+export const beigeGreen: Theme = {
+  name: "beigeGreen",
   label: "Beige Green",
-  description: "Cursor for baddies",
+  description: "Green vibes",
   icon: "Leaf",
   backgroundImage:
     "https://i.pinimg.com/736x/37/02/65/370265ace16275053c7df66c1c03ac70.jpg",
@@ -40,6 +40,32 @@ export const soloWantedForest: Theme = {
       maxWidth: "720px",
       textAlign: "center",
       lineHeight: "1.05",
+      color: "#113d29",
+    },
+
+    h2: {
+      fontSize: "56px",
+      fontWeight: "800",
+      fontStyle: "italic",
+      fontFamily: '"Playfair Display", serif',
+      margin: "0 0 8px 0",
+      width: "100%",
+      maxWidth: "720px",
+      textAlign: "center",
+      lineHeight: "1.1",
+      color: "#113d29",
+    },
+
+    h3: {
+      fontSize: "42px",
+      fontWeight: "800",
+      fontStyle: "italic",
+      fontFamily: '"Playfair Display", serif',
+      margin: "0 0 8px 0",
+      width: "100%",
+      maxWidth: "720px",
+      textAlign: "center",
+      lineHeight: "1.15",
       color: "#113d29",
     },
 
@@ -159,4 +185,4 @@ export const soloWantedForest: Theme = {
   },
 };
 
-registerTheme(soloWantedForest);
+registerTheme(beigeGreen);
