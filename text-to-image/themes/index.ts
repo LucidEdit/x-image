@@ -4,7 +4,6 @@ import "./book-excerpt";
 import "./dark-mono-poster";
 import "./manifesto";
 import "./beige-green";
-import "./forest";
 
 export const themes = getThemes();
 
