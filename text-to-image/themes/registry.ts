@@ -10,7 +10,7 @@ export const registerTheme = (theme: Theme) => {
 };
 
 export const getThemes = (): Theme[] => 
-  Array.from(themeRegistry.values()).sort((a, b) => a.label.localeCompare(b.label));
+  Array.from(themeRegistry.values());
 
 export const getAvailableThemeNames = (): string[] => 
   Array.from(themeRegistry.keys());

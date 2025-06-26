@@ -1,8 +1,9 @@
 import { getThemes, getThemeByName, getAvailableThemeNames } from "./registry";
 
+import "./manifesto";
 import "./book-excerpt";
 import "./dark-mono-poster";
-import "./manifesto";
+import "./beige-green";
 
 export const themes = getThemes();
 
