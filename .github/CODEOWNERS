@@ -1,0 +1,8 @@
+# CODEOWNERS file for lucid repository
+# This file defines code ownership for the repository
+
+# Global ownership - TheRayFitzgerald and cianomahonyy own all files
+* @TheRayFitzgerald @cianomahonyy
+
+# Protect the CODEOWNERS file itself
+/.github/CODEOWNERS @TheRayFitzgerald @cianomahonyy
