@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const APP_URL = "https://x.lucid.so";
+const APP_URL = "https://x.getlucid.app";
 const APP_NAME = "Lucid";
 const APP_DEFAULT_TITLE = "Lucid - Beautiful Text Images";
 const APP_TITLE_TEMPLATE = "%s - Lucid";
